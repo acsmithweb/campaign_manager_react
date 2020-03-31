@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './stat_block.css'
+import './stat_block_component.css'
 
-class StatBlock extends React.Component {
+class StatBlockComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -155,6 +155,4 @@ render() {
 
 }
 
-ReactDOM.render(<StatBlock />, document.getElementById('root'));
-
-export default StatBlock
+export default StatBlockComponent
