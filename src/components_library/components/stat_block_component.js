@@ -1,6 +1,5 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import './stat_block_component.css'
+import '../styling/stat_block_component.css'
 
 class StatBlockComponent extends React.Component {
   constructor(props) {
