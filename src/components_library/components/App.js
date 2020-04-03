@@ -1,16 +1,17 @@
 import React from 'react';
 import '../styling/App.css';
+import ReactDOM from 'react-dom';
 import CreatureCompendium from './creature_compendium';
 import * as ReactBootStrap from "react-bootstrap"
 
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this._displayCompendium = this._displayCompendium.bind(this);
   }
 
   _displayCompendium() {
-    console.log('ping')
+    ReactDOM.render(<CreatureCompendium />, document.getElementById('creature-compendium'));
   }
 
   render() {
@@ -26,6 +27,8 @@ class App extends React.Component {
           </ReactBootStrap.Nav>
         </ReactBootStrap.Navbar.Collapse>
       </ReactBootStrap.Navbar>
+      <div id='creature-compendium'>
+      </div>
       </div>
     );
   }
