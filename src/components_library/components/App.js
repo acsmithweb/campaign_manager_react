@@ -1,6 +1,5 @@
 import React from 'react';
 import '../styling/App.css';
-import ReactDOM from 'react-dom';
 import CreatureCompendium from './creature_compendium';
 import * as ReactBootStrap from "react-bootstrap"
 
