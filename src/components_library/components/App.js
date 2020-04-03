@@ -16,8 +16,11 @@ class App extends React.Component {
     this.setState({compendiumVisible: !(this.state.compendiumVisible)});
   }
 
+  compendiumView(){
+    return (this.state.compendiumVisible ? <CreatureCompendium /> : null);
+  }
+
   render() {
-    var compendium = this.state.compendiumVisible ? <CreatureCompendium /> : null;
     return (
       <div className="App" id='main-app'>
       <ReactBootStrap.Navbar bg="light" expand="lg">
@@ -31,7 +34,7 @@ class App extends React.Component {
         </ReactBootStrap.Navbar.Collapse>
       </ReactBootStrap.Navbar>
         <div>
-        {compendium}
+          {this.compendiumView()}
         </div>
       </div>
     );
