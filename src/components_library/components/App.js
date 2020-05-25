@@ -11,7 +11,6 @@ class App extends React.Component {
   }
 
   _toggleCompendium(){
-    console.log(this.state.compendiumVisible);
     this.setState({compendiumVisible: !(this.state.compendiumVisible)});
   }
 

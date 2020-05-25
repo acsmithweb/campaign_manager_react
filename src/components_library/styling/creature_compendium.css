@@ -1,0 +1,28 @@
+.compendium-side-bar {
+  float: left;
+  margin-left: 10px;
+  margin-top: 25px;
+  max-width: 10%;
+}
+
+.btn {
+  margin-top: 10px;
+  width: 150px;
+}
+
+.compendium-body {
+  margin-left: 20px;
+}
+
+.compendium-body .modal-dialog {
+    max-height: 200px;
+    z-index: 1;
+    position: fixed;
+    top: 10%;
+    left: 30%;
+}
+
+.modal-body {
+  max-height: 600px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}
