@@ -7,18 +7,14 @@ import "../styling/creature_compendium.css"
 
 class CreatureCompendium extends React.Component {
   constructor(props) {
-    super();
-    this.state = {addCreatureFormVisible: false};
+    super(props);
+    this.state = {show: false};
+
     this._toggleAddCreatureModal = this._toggleAddCreatureModal.bind(this);
   }
 
   _toggleAddCreatureModal(){
-    console.log(this.state.addCreatureFormVisible);
-    this.setState({addCreatureFormVisible: !(this.state.addCreatureFormVisible)});
-  }
-
-  addCreatureFormView(){
-    return (this.state.addCreatureFormVisible ? <CreatureForm _toggleAddCreatureModal={this._toggleAddCreatureModal}/> : null);
+    this.setState({show: !this.state.show});
   }
 
   render(){
@@ -30,7 +26,7 @@ class CreatureCompendium extends React.Component {
           <ReactBootStrap.Button variant="warning"> Edit Creature </ReactBootStrap.Button>
         </div>
         <div className='compendium-body'>
-          {this.addCreatureFormView()}
+          <CreatureForm _toggleAddCreatureModal = {this._toggleAddCreatureModal} show = {this.state.show}/>
           <StatBlockComponent />
         </div>
       </div>

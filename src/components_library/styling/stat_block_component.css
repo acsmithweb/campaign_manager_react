@@ -21,6 +21,7 @@ body *{
   box-shadow: 0 0 1.5em #867453;
 }
 .stat-block.wide{
+  width: 30%;
   min-width: 560px;
   text-align: center;
 }

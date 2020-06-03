@@ -6,29 +6,34 @@ class StatBlockComponent extends React.Component {
     super(props);
     this.state = {
       error: null,
-      isLoaded: false,
       items: []
     };
+
+    this.populateCompendium = this.populateCompendium.bind(this);
   }
 
   componentDidMount() {
     this.populateCompendium();
+    this.compendiumUpdate = setInterval(this.populateCompendium, 3000);
   };
 
+  componentWillUnmount() {
+    clearInterval(this.compendiumUpdate);
+  }
+
   populateCompendium() {
+    console.log('ping')
     fetch("http://localhost:3000/stat_blocks")
       .then(res => res.json())
       .then(
         (result) => {
           this.setState({
-            isLoaded: true,
             items: result
           });
           console.log(result);
         },
         (error) => {
           this.setState({
-            isLoaded: true,
             error
           });
         }
@@ -37,11 +42,9 @@ class StatBlockComponent extends React.Component {
 
 
 render() {
-  const { error, isLoaded, items } = this.state;
+  const { error, items } = this.state;
   if (error) {
     return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
-    return <div>Loading...</div>;
   } else {
     return (
         <ul>

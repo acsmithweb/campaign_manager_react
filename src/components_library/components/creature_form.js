@@ -7,23 +7,16 @@ class CreatureForm extends React.Component {
       this.state = {name: ''};
 
       this._setFieldValue = this._setFieldValue.bind(this);
-      this._closeAddCreatureModal = this._closeAddCreatureModal.bind(this);
       this._addCreatureToCompendium = this._addCreatureToCompendium.bind(this);
       this._submitCreatureToCompendium = this._submitCreatureToCompendium.bind(this);
   };
 
   _setFieldValue(event){
     this.setState({ [event.target.id]:  event.target.value });
-    console.log(this.state);
   }
 
-  _closeAddCreatureModal() {
-    this.props._toggleAddCreatureModal();
-  };
-
   _addCreatureToCompendium(event) {
-    event.preventDefault();
-    this._closeAddCreatureModal();
+    this._submitCreatureToCompendium(event);
   };
 
   _submitCreatureToCompendium(event) {
@@ -38,12 +31,14 @@ class CreatureForm extends React.Component {
       body: JSON.stringify(this.state)})
     .then(res => res.json())
     .then(res => console.log(res));
-    this._closeAddCreatureModal();
+    this.props._toggleAddCreatureModal();
   }
 
   render() {
+    console.log(this.state)
+
     return (
-      <ReactBootStrap.Modal.Dialog size='lg'>
+      <ReactBootStrap.Modal size='lg' show={this.props.show} onHide={this.props._toggleAddCreatureModal}>
         <ReactBootStrap.Modal.Header>
           <ReactBootStrap.Modal.Title>Add Creature</ReactBootStrap.Modal.Title>
         </ReactBootStrap.Modal.Header>
@@ -178,11 +173,11 @@ class CreatureForm extends React.Component {
           </ReactBootStrap.Modal.Body>
 
         <ReactBootStrap.Modal.Footer>
-          <ReactBootStrap.Button variant="secondary" onClick={this._closeAddCreatureModal}> Close</ReactBootStrap.Button>
-          <ReactBootStrap.Button variant="primary" onClick={this._submitCreatureToCompendium}>Add Creature</ReactBootStrap.Button>
+          <ReactBootStrap.Button variant="secondary" onClick={this.props._toggleAddCreatureModal}> Close</ReactBootStrap.Button>
+          <ReactBootStrap.Button variant="primary" onClick={this._addCreatureToCompendium}>Add Creature</ReactBootStrap.Button>
         </ReactBootStrap.Modal.Footer>
         </ReactBootStrap.Form>
-      </ReactBootStrap.Modal.Dialog>
+      </ReactBootStrap.Modal>
     );
 
   }
