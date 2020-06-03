@@ -21,7 +21,7 @@ body *{
   box-shadow: 0 0 1.5em #867453;
 }
 .stat-block.wide{
-  width: 46.5%;
+  width: 30%;
   min-width: 560px;
   text-align: center;
 }
@@ -101,6 +101,7 @@ body *{
   line-height: 1.2em;
 }
 .property-line h4{
+  font-weight: bold;
   color: #7A200D;
 }
 .property-line{
