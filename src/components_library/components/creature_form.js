@@ -20,7 +20,6 @@ class CreatureForm extends React.Component {
   };
 
   _submitCreatureToCompendium(event) {
-    console.log(this.state);
     fetch('http://localhost:3000/stat_blocks',
     {
       method: 'POST',
@@ -35,7 +34,6 @@ class CreatureForm extends React.Component {
   }
 
   render() {
-    console.log(this.state)
 
     return (
       <ReactBootStrap.Modal size='lg' show={this.props.show} onHide={this.props._toggleAddCreatureModal}>

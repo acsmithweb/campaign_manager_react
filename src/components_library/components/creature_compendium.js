@@ -1,5 +1,5 @@
 import React from 'react';
-import StatBlockComponent from './stat_block_component'
+import StatBlockLibrary from './stat_block_library'
 import CreatureForm from './creature_form'
 import * as ReactBootStrap from "react-bootstrap"
 import "../styling/creature_compendium.css"
@@ -27,7 +27,7 @@ class CreatureCompendium extends React.Component {
         </div>
         <div className='compendium-body'>
           <CreatureForm _toggleAddCreatureModal = {this._toggleAddCreatureModal} show = {this.state.show}/>
-          <StatBlockComponent />
+          <StatBlockLibrary />
         </div>
       </div>
     );
