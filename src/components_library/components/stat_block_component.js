@@ -5,7 +5,6 @@ import '../styling/stat_block_library.css'
 class StatBlockComponent extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
 
     this.state = {
       error: null,

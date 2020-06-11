@@ -6,13 +6,10 @@ class StatBlockLibrary extends React.Component {
     super(props);
     this.state = {
       error: null,
-      items: [],
-      selected_items: []
+      items: []
     };
 
     this.populateCompendium = this.populateCompendium.bind(this);
-    this.addIdToSelectList = this.addIdToSelectList.bind(this);
-    this.removeIdFromSelectList = this.removeIdFromSelectList.bind(this);
   }
 
   componentDidMount() {
@@ -24,16 +21,7 @@ class StatBlockLibrary extends React.Component {
     clearInterval(this.compendiumUpdate);
   }
 
-  addIdToSelectList(id) {
-    this.state.selected_items.push(id);
-  }
-
-  removeIdFromSelectList(id) {
-    this.setState({selected_items: this.state.selected_items.filter(identifier => identifier !== id)});
-  }
-
   populateCompendium() {
-    console.log(this.state.selected_items);
     fetch("http://localhost:3000/stat_blocks")
       .then(res => res.json())
       .then(
@@ -59,7 +47,7 @@ render() {
     return (
         <ul>
           {items.map(item => (
-            <StatBlockComponent item={item} removeIdFromSelectList={this.removeIdFromSelectList} addIdToSelectList={this.addIdToSelectList}/>
+            <StatBlockComponent key={item.id} item={item} removeIdFromSelectList={this.props.removeIdFromSelectList} addIdToSelectList={this.props.addIdToSelectList}/>
           ))}
         </ul>
       );
