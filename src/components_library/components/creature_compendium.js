@@ -5,7 +5,6 @@ import * as ReactBootStrap from "react-bootstrap"
 import "../styling/creature_compendium.css"
 import {delete_stat_blocks} from '../../js/stat_block_api_facade.js'
 
-
 class CreatureCompendium extends React.Component {
   constructor(props) {
     super(props);

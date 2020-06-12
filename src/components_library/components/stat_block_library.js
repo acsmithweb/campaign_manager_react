@@ -1,5 +1,6 @@
 import React from 'react'
 import StatBlockComponent from "./stat_block_component.js"
+import {get_stat_blocks} from '../../js/stat_block_api_facade.js'
 
 class StatBlockLibrary extends React.Component {
   constructor(props) {
@@ -22,17 +23,12 @@ class StatBlockLibrary extends React.Component {
   }
 
   populateCompendium() {
-    fetch("http://localhost:3000/stat_blocks")
-      .then(res => res.json())
-      .then(
+    get_stat_blocks()
+    .then(
         (result) => {
           this.setState({
-            items: result
-          });
-        },
-        (error) => {
-          this.setState({
-            error
+            items: result,
+            error: result.error
           });
         }
       )

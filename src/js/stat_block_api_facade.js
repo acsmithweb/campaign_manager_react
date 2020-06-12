@@ -1,5 +1,7 @@
+var url = 'http://localhost:3000/'
+
 export function delete_stat_blocks(ids) {
-  fetch('http://localhost:3000/stat_blocks_destroy/',
+  fetch(url + 'stat_blocks_destroy/',
   {
     method: 'DELETE',
     body: JSON.stringify({ids: ids}),
@@ -9,4 +11,11 @@ export function delete_stat_blocks(ids) {
     }
   })
   .then(res => console.log(res));
+}
+
+export function get_stat_blocks() {
+  return fetch(url + "stat_blocks/")
+    .then(response => {
+      return response.json()
+    });
 }
