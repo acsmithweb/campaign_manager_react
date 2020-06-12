@@ -1,14 +1,14 @@
 import React from 'react';
-import StatBlockLibrary from './stat_block_library'
-import CreatureForm from './creature_form'
-import * as ReactBootStrap from "react-bootstrap"
-import "../styling/creature_compendium.css"
-import {delete_stat_blocks} from '../../js/stat_block_api_facade.js'
+import StatBlockLibrary from './stat_block_library';
+import CreatureForm from './creature_form';
+import * as ReactBootStrap from "react-bootstrap";
+import "../styling/creature_compendium.css";
+import {delete_stat_blocks} from '../../js/stat_block_api_facade.js';
 
 class CreatureCompendium extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {show: false, selected_items: []};
+    this.state = {show_add_creature: false, show_delete_confirmation: false, selected_items: []};
 
     this._toggleAddCreatureModal = this._toggleAddCreatureModal.bind(this);
     this.addIdToSelectList = this.addIdToSelectList.bind(this);
@@ -17,7 +17,7 @@ class CreatureCompendium extends React.Component {
   }
 
   _toggleAddCreatureModal(){
-    this.setState({show: !this.state.show});
+    this.setState({show_add_creature: !this.state.show_add_creature});
   }
 
   setSelectedStatBlocks(stat_block_ids){
@@ -47,7 +47,7 @@ class CreatureCompendium extends React.Component {
           <ReactBootStrap.Button variant="warning">  Edit Creature </ReactBootStrap.Button>
         </div>
         <div className='compendium-body'>
-          <CreatureForm _toggleAddCreatureModal = {this._toggleAddCreatureModal} show = {this.state.show}/>
+          <CreatureForm _toggleAddCreatureModal = {this._toggleAddCreatureModal} show = {this.state.show_add_creature}/>
           <StatBlockLibrary addIdToSelectList={this.addIdToSelectList} removeIdFromSelectList = {this.removeIdFromSelectList}/>
         </div>
       </div>

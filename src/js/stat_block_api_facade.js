@@ -19,3 +19,16 @@ export function get_stat_blocks() {
       return response.json()
     });
 }
+
+export function add_stat_block(params) {
+  fetch('http://localhost:3000/stat_blocks',
+  {
+    method: 'POST',
+    headers:
+    {
+      'Content-type': 'application/json; charset=UTF-8'
+    },
+    body: JSON.stringify(params)})
+  .then(res => res.json())
+  .then(res => console.log(res));
+}
