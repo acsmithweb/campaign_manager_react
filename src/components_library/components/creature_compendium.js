@@ -51,7 +51,7 @@ class CreatureCompendium extends React.Component {
         <div className='compendium-side-bar'>
           <ReactBootStrap.Button variant="success" onClick={this._toggleAddCreatureModal}> Add Creature </ReactBootStrap.Button>
           <ReactBootStrap.Button variant="danger" onClick={this.toggleActionConfirmationModal}> Remove Creature </ReactBootStrap.Button>
-          <ReactBootStrap.Button variant="warning">  Edit Creature </ReactBootStrap.Button>
+          <ReactBootStrap.Button variant="warning"> Edit Creature </ReactBootStrap.Button>
         </div>
         <div className='compendium-body'>
           <CreatureForm _toggleAddCreatureModal = {this._toggleAddCreatureModal} show = {this.state.show_add_creature}/>

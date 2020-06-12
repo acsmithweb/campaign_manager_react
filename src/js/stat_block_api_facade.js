@@ -21,7 +21,7 @@ export function get_stat_blocks() {
 }
 
 export function add_stat_block(params) {
-  fetch('http://localhost:3000/stat_blocks',
+  fetch(url + 'stat_blocks',
   {
     method: 'POST',
     headers:
