@@ -1,5 +1,6 @@
 import React from 'react'
 import * as ReactBootStrap from "react-bootstrap"
+import {add_stat_block} from '../../js/stat_block_api_facade.js'
 
 class CreatureForm extends React.Component {
   constructor(props) {
@@ -20,22 +21,11 @@ class CreatureForm extends React.Component {
   };
 
   _submitCreatureToCompendium(event) {
-    console.log(this.state);
-    fetch('http://localhost:3000/stat_blocks',
-    {
-      method: 'POST',
-      headers:
-      {
-        'Content-type': 'application/json; charset=UTF-8'
-      },
-      body: JSON.stringify(this.state)})
-    .then(res => res.json())
-    .then(res => console.log(res));
+    add_stat_block(this.state);
     this.props._toggleAddCreatureModal();
   }
 
   render() {
-    console.log(this.state)
 
     return (
       <ReactBootStrap.Modal size='lg' show={this.props.show} onHide={this.props._toggleAddCreatureModal}>
