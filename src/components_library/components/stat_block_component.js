@@ -20,6 +20,7 @@ class StatBlockComponent extends React.Component {
   }
 
 render() {
+  console.log(this.state.item);
   var item = this.state.item;
     return(
       <div class="stat-block wide">
@@ -29,7 +30,7 @@ render() {
           <ReactBootStrap.Form.Check onClick={this.selectStatBlock} value={item.id}/>
             <div class="creature-heading">
               <h1>{item.name} </h1>
-              <h2>{item.creature_type} {item.alignment}</h2>
+              <h2>{item.size} {item.creature_type} {item.alignment}</h2>
             </div>
             <svg height="5" width="100%" class="tapered-rule">
               <polyline points="0,0 400,2.5 0,5"></polyline>
