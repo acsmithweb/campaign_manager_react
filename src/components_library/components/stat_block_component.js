@@ -20,7 +20,6 @@ class StatBlockComponent extends React.Component {
   }
 
 render() {
-  console.log(this.state.item);
   var item = this.state.item;
     return(
       <div class="stat-block wide">
