@@ -21,7 +21,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App" id='main-app'>
-      <ReactBootStrap.Navbar bg="light" expand="lg">
+      <ReactBootStrap.Navbar bg="light" expand="lg" fixed="top">
         <ReactBootStrap.Navbar.Brand>Dungeon Dashboard</ReactBootStrap.Navbar.Brand>
         <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">

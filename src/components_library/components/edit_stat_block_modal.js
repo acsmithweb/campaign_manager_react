@@ -35,7 +35,7 @@ class EditStatBlockModal extends React.Component {
         <ReactBootStrap.Form>
           <ReactBootStrap.Modal.Body>
             <ReactBootStrap.Tabs>
-            {this.props.selected_items.map((item, index) => (
+            {this.props.selected_items.length ? this.props.selected_items.map((item, index) => (
               <ReactBootStrap.Tab eventKey={item.id} title={item.name}>
                   <ReactBootStrap.Form.Group>
                     <ReactBootStrap.Form.Label>Creature Name</ReactBootStrap.Form.Label>
@@ -163,7 +163,8 @@ class EditStatBlockModal extends React.Component {
                     </div>
                   </ReactBootStrap.Form.Group>
                 </ReactBootStrap.Tab>
-              ))}
+              )) : 'No Stat Block Selected'}
+
               </ReactBootStrap.Tabs>
           </ReactBootStrap.Modal.Body>
 
