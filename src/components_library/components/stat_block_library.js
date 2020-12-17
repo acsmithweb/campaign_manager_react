@@ -15,13 +15,8 @@ class StatBlockLibrary extends React.Component {
 
   componentDidMount() {
     this.populateCompendium();
-    this.compendiumUpdate = setInterval(this.populateCompendium, 3000);
   };
-
-  componentWillUnmount() {
-    clearInterval(this.compendiumUpdate);
-  }
-
+  
   populateCompendium() {
     get_stat_blocks()
     .then(

@@ -1,8 +1,8 @@
 .compendium-side-bar {
-  float: left;
   margin-left: 10px;
   margin-top: 25px;
-  max-width: 10%;
+  max-width: 100px;
+  position: fixed;
 }
 
 .btn {
@@ -11,7 +11,8 @@
 }
 
 .compendium-body {
-  margin-left: 20px;
+  margin-top: 50px;
+  margin-left: 50px;
 }
 
 .compendium-body .modal-dialog {

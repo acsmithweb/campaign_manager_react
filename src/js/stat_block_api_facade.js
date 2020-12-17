@@ -9,13 +9,10 @@ export function delete_stat_blocks(ids) {
     {
       'Content-type': 'application/json; charset=UTF-8'
     }
-  })
-  .then(res => console.log(res));
+  });
 }
 
 export function get_stat_blocks() {
-  console.log(process.env.NODE_ENV)
-
   return fetch(url + "stat_blocks/")
     .then(response => {
       return response.json()
@@ -31,6 +28,36 @@ export function add_stat_block(params) {
       'Content-type': 'application/json; charset=UTF-8'
     },
     body: JSON.stringify(params)})
-  .then(res => res.json())
-  .then(res => console.log(res));
+  .then(res => res.json());
+}
+
+export function retrieve_stat_blocks_with_filter(filter, values) {
+  return fetch(url + 'stat_blocks?search_param=' + generate_search_url_params(filter, values),
+  {
+    method: 'GET',
+    headers:
+    {
+      'Content-type': 'application/json; charset=UTF-8'
+    }})
+    .then(response => {return response.json()});
+}
+
+export function edit_stat_block(params){
+  console.log(params.stat_blocks[324])
+  Object.keys(params.stat_blocks).forEach(id =>
+  fetch(url + 'stat_blocks/' + id,
+  {
+    method: 'PATCH',
+    headers:
+    {
+      'Content-type': 'application/json; charset=UTF-8',
+      'Accept': 'application/json'
+    },
+    body:JSON.stringify(params.stat_blocks[id])
+  }).then(res => res.json())
+  )
+}
+
+function generate_search_url_params(filter, values) {
+  return filter + '&search_values[]=' + values.join("&search_values[]=")
 }
