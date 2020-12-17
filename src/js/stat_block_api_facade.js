@@ -1,4 +1,4 @@
-var url = 'http://localhost:3000/'
+var url = 'https://campaign-manager-api.herokuapp.com/'
 
 export function delete_stat_blocks(ids) {
   fetch(url + 'stat_blocks_destroy/',
