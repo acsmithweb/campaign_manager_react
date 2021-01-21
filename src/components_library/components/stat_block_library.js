@@ -7,7 +7,7 @@ class StatBlockLibrary extends React.Component {
     super(props);
     this.state = {
       error: null,
-      items: []
+      items: [],
     };
 
     this.populateCompendium = this.populateCompendium.bind(this);
@@ -16,7 +16,7 @@ class StatBlockLibrary extends React.Component {
   componentDidMount() {
     this.populateCompendium();
   };
-  
+
   populateCompendium() {
     get_stat_blocks()
     .then(
@@ -31,18 +31,19 @@ class StatBlockLibrary extends React.Component {
 
 
 render() {
-  const { error, items } = this.state;
-  if (error) {
-    return <div>Error: {error.message}</div>;
+  var items = []
+  if (this.props.filteredStatBlocks == null || this.props.filteredStatBlocks.length == 0) {
+    items = this.state.items
   } else {
-    return (
-        <ul>
-          {items.map(item => (
-            <StatBlockComponent key={item.id} item={item} removeIdFromSelectList={this.props.removeIdFromSelectList} addIdToSelectList={this.props.addIdToSelectList}/>
-          ))}
-        </ul>
-      );
+    items = this.props.filteredStatBlocks
   }
+  return (
+      <ul>
+        {items.map(item => (
+          <StatBlockComponent key={item.id} item={item} removeIdFromSelectList={this.props.removeIdFromSelectList} addIdToSelectList={this.props.addIdToSelectList}/>
+        ))}
+      </ul>
+    );
 }
 
 }
