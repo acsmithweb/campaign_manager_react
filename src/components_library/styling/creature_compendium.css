@@ -1,18 +1,44 @@
-.compendium-side-bar {
+.compendium-sub-nav-bar {
   margin-left: 10px;
-  margin-top: 25px;
-  max-width: 100px;
+  margin-top: -45px;
+  height: 50px;
+  width: 100%;
   position: fixed;
+  z-index: 1;
+  background-color: white;
 }
 
 .btn {
-  margin-top: 10px;
-  width: 150px;
+  margin-top: 5px;
+  margin-left: 10px;
+  min-width: 100px;
+  float: left;
+}
+
+#compendium-search{
+  margin-bottom: 0px;
+}
+
+#btn-search {
+  max-width: 20px;
+  float: right;
+  margin-right: 3.8%;
+  margin-left: 0px;
+}
+
+#search-bar {
+  margin-top: 5px;
+  min-width: 50px;
+  max-width: 300px;
+  float: right;
 }
 
 .compendium-body {
-  margin-top: 50px;
-  margin-left: 50px;
+  margin-top: 100px;
+}
+
+.compendium-body ul {
+  padding-left: 0px;
 }
 
 .compendium-body .modal-dialog {
@@ -20,7 +46,6 @@
     z-index: 1;
     position: fixed;
     top: 10%;
-    left: 30%;
 }
 
 .modal-body {
