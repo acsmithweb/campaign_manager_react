@@ -7,7 +7,7 @@ class StatBlockLibrary extends React.Component {
     super(props);
     this.state = {
       error: null,
-      items: [],
+      items: []
     };
 
     this.populateCompendium = this.populateCompendium.bind(this);

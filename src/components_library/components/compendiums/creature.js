@@ -1,19 +1,19 @@
 import React from 'react';
-import StatBlockLibrary from './stat_block_library';
-import CreatureForm from './creature_form';
-import ActionConfirmationModal from './action_confirmation_modal';
-import EditStatBlockModal from './edit_stat_block_modal';
-import CompendiumActionBar from './compendium_action_bar';
+import StatBlockLibrary from './../stat_block_library';
+import AddCreatureModal from './../modals/add_creature_modal';
+import ActionConfirmationModal from './../modals/action_confirmation_modal';
+import EditStatBlockModal from './../modals/edit_stat_block_modal';
+import CompendiumActionBar from './../compendium_action_bar';
 import * as ReactBootStrap from "react-bootstrap";
-import "../styling/creature_compendium.css";
-import {delete_stat_blocks, retrieve_stat_blocks_with_filter} from '../../js/stat_block_api_facade.js';
+import "../../styling/compendium.css";
+import {delete_stat_blocks, retrieve_stat_blocks_with_filter} from '../../../js/stat_block_api_facade.js';
 
 class CreatureCompendium extends React.Component {
   constructor(props) {
     super(props);
     this.state = {key: 1, show_add_creature: false, show_delete_confirmation: false, selected_items: [], edit_items: [], search_value: [], search_results:null};
 
-    this._toggleAddCreatureModal = this._toggleAddCreatureModal.bind(this);
+    this.toggleAddCreatureModal = this.toggleAddCreatureModal.bind(this);
     this.toggleEditCreatureModal = this.toggleEditCreatureModal.bind(this);
     this.toggleActionConfirmationModal = this.toggleActionConfirmationModal.bind(this);
     this.retrieveSelectedStatBlocks = this.retrieveSelectedStatBlocks.bind(this);
@@ -25,7 +25,7 @@ class CreatureCompendium extends React.Component {
     this.updateSearchValue = this.updateSearchValue.bind(this);
   }
 
-  _toggleAddCreatureModal(){
+  toggleAddCreatureModal(){
     this.setState({show_add_creature: !this.state.show_add_creature});
     if (this.state.show_add_creature == true) {
       this.refreshCompendium('')
@@ -96,7 +96,7 @@ class CreatureCompendium extends React.Component {
     return (
       <div>
         <CompendiumActionBar
-          createAction = {this._toggleAddCreatureModal}
+          createAction = {this.toggleAddCreatureModal}
           editAction = {this.toggleEditCreatureModal}
           deleteAction = {this.toggleActionConfirmationModal}
           searchAction = {this.searchStatBlockText}
@@ -104,9 +104,9 @@ class CreatureCompendium extends React.Component {
           updateSearchValue = {this.updateSearchValue}
           object = {'Creature'}
         />
-        <div className='compendium-body'>
-          <CreatureForm
-            _toggleAddCreatureModal = {this._toggleAddCreatureModal}
+        <div className='compendium-body' key={this.state.key}>
+          <AddCreatureModal
+          toggleAddCreatureModal = {this.toggleAddCreatureModal}
             show = {this.state.show_add_creature}
           />
           <EditStatBlockModal

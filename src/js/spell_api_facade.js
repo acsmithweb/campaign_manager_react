@@ -1,7 +1,7 @@
 var url = 'http://localhost:3000/'
 
-export function delete_stat_blocks(ids) {
-  fetch(url + 'stat_blocks_destroy/',
+export function delete_spells(ids) {
+  fetch(url + 'spells_destroy/',
   {
     method: 'DELETE',
     body: JSON.stringify({ids: ids}),
@@ -12,16 +12,15 @@ export function delete_stat_blocks(ids) {
   });
 }
 
-export function get_stat_blocks() {
-  return fetch(url + "stat_blocks/")
+export function get_spells() {
+  return fetch(url + "spells/")
     .then(response => {
       return response.json()
     });
 }
 
-export function add_stat_block(params) {
-  console.log(params);
-  fetch(url + 'stat_blocks',
+export function add_spell(params) {
+  fetch(url + 'spells',
   {
     method: 'POST',
     headers:
@@ -32,8 +31,8 @@ export function add_stat_block(params) {
   .then(res => res.json());
 }
 
-export function retrieve_stat_blocks_with_filter(filter, values) {
-  return fetch(url + 'stat_blocks?search_param=' + generate_search_url_params(filter, values),
+export function retrieve_spells_with_filter(filter, values) {
+  return fetch(url + 'spells?search_param=' + generate_search_url_params(filter, values),
   {
     method: 'GET',
     headers:
@@ -43,10 +42,9 @@ export function retrieve_stat_blocks_with_filter(filter, values) {
     .then(response => {return response.json()});
 }
 
-export function edit_stat_block(params){
-  console.log(params.stat_blocks[324])
-  Object.keys(params.stat_blocks).forEach(id =>
-  fetch(url + 'stat_blocks/' + id,
+export function edit_spells(params){
+  Object.keys(params.spells).forEach(id =>
+  fetch(url + 'spells/' + id,
   {
     method: 'PATCH',
     headers:
@@ -54,7 +52,7 @@ export function edit_stat_block(params){
       'Content-type': 'application/json; charset=UTF-8',
       'Accept': 'application/json'
     },
-    body:JSON.stringify(params.stat_blocks[id])
+    body:JSON.stringify(params.spells[id])
   }).then(res => res.json())
   )
 }

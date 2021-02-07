@@ -1,6 +1,6 @@
-import React from 'react'
-import * as ReactBootStrap from "react-bootstrap"
-import '../styling/stat_block_library.css'
+import React from 'react';
+import * as ReactBootStrap from "react-bootstrap";
+import '../styling/stat_block_library.css';
 
 class StatBlockComponent extends React.Component {
   constructor(props) {
@@ -15,6 +15,7 @@ class StatBlockComponent extends React.Component {
   }
 
   selectStatBlock(e) {
+    console.log('thing');
     const {checked, value} = e.target;
     checked ? this.props.addIdToSelectList(value) : this.props.removeIdFromSelectList(value);
   }
@@ -139,7 +140,7 @@ render() {
             </div>
           <hr class="orange-border bottom" />
       </div>
-    )
+    );
   }
 }
 
