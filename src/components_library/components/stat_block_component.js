@@ -1,6 +1,6 @@
-import React from 'react'
-import * as ReactBootStrap from "react-bootstrap"
-import '../styling/stat_block_library.css'
+import React from 'react';
+import * as ReactBootStrap from "react-bootstrap";
+import '../styling/stat_block_library.css';
 
 class StatBlockComponent extends React.Component {
   constructor(props) {
@@ -139,7 +139,7 @@ render() {
             </div>
           <hr class="orange-border bottom" />
       </div>
-    )
+    );
   }
 }
 

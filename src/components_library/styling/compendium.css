@@ -15,11 +15,28 @@
   float: left;
 }
 
+#action-sub-nav-success {
+  background-color: #004f00;
+  border-color:#004f00;
+}
+
+#action-sub-nav-danger {
+  background-color: #922610;
+  border-color:#922610;
+}
+
+#action-sub-nav-warning {
+  background-color: #E69A28;
+  border-color:#E69A28;
+}
+
 #compendium-search{
   margin-bottom: 0px;
 }
 
 #btn-search {
+  background-color: #001fAf;
+  border-color:#001fAF;
   max-width: 20px;
   float: right;
   margin-right: 3.8%;

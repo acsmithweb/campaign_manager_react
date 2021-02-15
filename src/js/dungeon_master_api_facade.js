@@ -1,7 +1,7 @@
 var url = 'https://campaign-manager-api.herokuapp.com/'
 
-export function delete_stat_blocks(ids) {
-  fetch(url + 'stat_blocks_destroy/',
+export function delete_objects(ids, object_type) {
+  fetch(url + object_type.toString() + '_destroy/',
   {
     method: 'DELETE',
     body: JSON.stringify({ids: ids}),
@@ -12,15 +12,8 @@ export function delete_stat_blocks(ids) {
   });
 }
 
-export function get_stat_blocks() {
-  return fetch(url + "stat_blocks/")
-    .then(response => {
-      return response.json()
-    });
-}
-
-export function add_stat_block(params) {
-  fetch(url + 'stat_blocks',
+export function add_object(params, object_type) {
+  fetch(url + object_type.toString() + '/',
   {
     method: 'POST',
     headers:
@@ -31,8 +24,15 @@ export function add_stat_block(params) {
   .then(res => res.json());
 }
 
-export function retrieve_stat_blocks_with_filter(filter, values) {
-  return fetch(url + 'stat_blocks?search_param=' + generate_search_url_params(filter, values),
+export function get(object_type) {
+  return fetch(url + object_type.toString() + '/')
+    .then(response => {
+      return response.json();
+    });
+}
+
+export function get_with_filter(object_type, filter, values) {
+  return fetch(url + object_type.toString() + '?search_param=' + generate_search_url_params(filter, values),
   {
     method: 'GET',
     headers:
@@ -42,10 +42,9 @@ export function retrieve_stat_blocks_with_filter(filter, values) {
     .then(response => {return response.json()});
 }
 
-export function edit_stat_block(params){
-  console.log(params.stat_blocks[324])
-  Object.keys(params.stat_blocks).forEach(id =>
-  fetch(url + 'stat_blocks/' + id,
+export function edit_objects(object_type, params) {
+  Object.keys(params[object_type]).forEach(id =>
+  fetch(url + object_type.toString() +'/' + id,
   {
     method: 'PATCH',
     headers:
@@ -53,7 +52,7 @@ export function edit_stat_block(params){
       'Content-type': 'application/json; charset=UTF-8',
       'Accept': 'application/json'
     },
-    body:JSON.stringify(params.stat_blocks[id])
+    body:JSON.stringify(params[object_type][id])
   }).then(res => res.json())
   )
 }
