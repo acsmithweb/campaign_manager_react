@@ -5,10 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styling/compendium.css";
 
 class CompendiumActionBar extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render(){
     return (
       <div className='compendium-sub-nav-bar'>

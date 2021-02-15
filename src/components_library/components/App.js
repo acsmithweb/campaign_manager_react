@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styling/App.css';
-import CreatureCompendium from './compendiums/creature';
-import SpellCompendium from './compendiums/spell';
+import ObjectCompendium from './compendium.js';
 import * as ReactBootStrap from "react-bootstrap"
 
 class App extends React.Component {
@@ -23,11 +22,11 @@ class App extends React.Component {
   }
 
   creatureCompendiumView(){
-    return (this.state.creatureCompendiumVisible ? <CreatureCompendium /> : null);
+    return (this.state.creatureCompendiumVisible ? <ObjectCompendium object_type={'stat_blocks'} objForm={'StatBlockForm'} obj_component={'StatBlockComponent'}/> : null);
   }
 
   spellCompendiumView(){
-    return (this.state.spellCompendiumVisible ? <SpellCompendium /> : null);
+    return (this.state.spellCompendiumVisible ? <ObjectCompendium object_type={'spells'} objForm={'SpellForm'} obj_component={'SpellBlockComponent'}/> : null);
   }
 
   render() {

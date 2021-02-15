@@ -15,7 +15,6 @@ class StatBlockComponent extends React.Component {
   }
 
   selectStatBlock(e) {
-    console.log('thing');
     const {checked, value} = e.target;
     checked ? this.props.addIdToSelectList(value) : this.props.removeIdFromSelectList(value);
   }

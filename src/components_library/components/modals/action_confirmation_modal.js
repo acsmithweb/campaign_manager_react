@@ -2,10 +2,6 @@ import React from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 
 class ActionConfirmationModal extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <ReactBootStrap.Modal show={this.props.show} onHide={this.props.toggleModal}>

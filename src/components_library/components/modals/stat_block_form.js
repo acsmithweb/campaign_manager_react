@@ -9,7 +9,6 @@ class StatBlockForm extends React.Component{
   }
 
   render() {
-
     return (
       <ReactBootStrap.Form>
             <ReactBootStrap.Form.Group>
