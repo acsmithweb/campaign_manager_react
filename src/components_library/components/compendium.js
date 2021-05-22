@@ -95,6 +95,7 @@ class ObjectCompendium extends React.Component {
 
   storeSelectedObjects(objects) {
     this.props.storeObjects(this.state.selected_items, this.state.object_type)
+    this.refreshCompendium(this.state.search_value);
   }
 
   render(){

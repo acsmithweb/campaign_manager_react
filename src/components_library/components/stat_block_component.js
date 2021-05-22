@@ -146,6 +146,7 @@ render() {
     return (
     <div class="stat-block wide">
       <div class="creature-heading">
+        <ReactBootStrap.Form.Check value={item.id}/>
         <h1>{item.name}</h1>
         <h2>{item.size} {item.creature_type} {item.alignment}</h2>
         <h2>Challenge Rating:  {item.challenge_rating}</h2>

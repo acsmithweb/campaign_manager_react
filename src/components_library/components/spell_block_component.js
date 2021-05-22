@@ -72,16 +72,14 @@ render() {
       return (
       <div class="stat-block wide">
         <div class="creature-heading">
+          <ReactBootStrap.Form.Check value={item.id}/>
           <h1> {item.name} </h1>
           <h2>Casting Time: {item.casting_time}</h2>
           <h2>Level-{item.level} {item.ritual ? '(ritual)' : ''} </h2>
-          <h4>Duration: </h4>
-          <p>{item.concentration ? 'Concentration, ' : ''} {item.duration}</p>
-          <h4>Components: </h4>
-          <p>{this.formatArrays(item.components)} ({item.material})</p>
-          <h4>Range: </h4>
-          <p>{item.range}</p>
-          <p>{item.damage_type}</p>
+          <h2>Duration: {item.duration}, {item.concentration ? 'Concentration, ' : ''} </h2>
+          <h2>Components: {this.formatArrays(item.components)} ({item.material})</h2>
+          <h2>Range: {item.range}</h2>
+          <h2>Damage Type: {item.damage_type}</h2>
         </div>
       </div>);
     }

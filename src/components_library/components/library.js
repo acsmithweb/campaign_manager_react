@@ -19,6 +19,9 @@ class ObjectLibrary extends React.Component {
 
     componentDidMount() {
       this.populateCompendium();
+      if (this.props.filteredObjects != null && this.props.filteredObjects.length > 0) {
+        this.retrieveSelectedObjects();
+      }
     };
 
     populateCompendium() {
@@ -34,14 +37,12 @@ class ObjectLibrary extends React.Component {
     };
 
     retrieveSelectedObjects(){
-      if (this.props.filteredObjects.length > 0) {
-        get_with_filter(this.props.object_type,'id',this.props.filteredObjects)
-        .then(
-          (result) => {
-            this.setState({bookmarks: result});
-          }
-        );
-      }
+      get_with_filter(this.props.object_type,'id',this.props.filteredObjects)
+      .then(
+        (result) => {
+          this.setState({bookmarks: result});
+        }
+      );
     };
 
   render() {
@@ -52,7 +53,6 @@ class ObjectLibrary extends React.Component {
       items = this.state.items;
     }
     else {
-      this.retrieveSelectedObjects()
       items = this.state.bookmarks;
     }
     if (items.length > 0){
