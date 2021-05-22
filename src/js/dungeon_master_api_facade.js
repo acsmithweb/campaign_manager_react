@@ -1,4 +1,4 @@
-var url = 'http://localhost:3000/'
+var url = 'https://campaign-manager-api.herokuapp.com/'
 
 export function delete_objects(ids, object_type) {
   fetch(url + object_type.toString() + '_destroy/',
