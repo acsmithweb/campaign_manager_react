@@ -1,13 +1,17 @@
-import React from 'react'
-import * as Components from "./object_blocks.js"
-import {get} from '../../js/dungeon_master_api_facade.js'
+import React from 'react';
+import * as Components from "./object_blocks.js";
+import "../styling/library.css"
+import {get, get_with_filter} from '../../js/dungeon_master_api_facade.js';
+
+
 
 class ObjectLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       error: null,
-      items: []
+      items: [],
+      bookmarks: []
     };
 
     this.populateCompendium = this.populateCompendium.bind(this);
@@ -15,6 +19,9 @@ class ObjectLibrary extends React.Component {
 
     componentDidMount() {
       this.populateCompendium();
+      if (this.props.filteredObjects != null && this.props.filteredObjects.length > 0) {
+        this.retrieveSelectedObjects();
+      }
     };
 
     populateCompendium() {
@@ -29,23 +36,39 @@ class ObjectLibrary extends React.Component {
       )
     };
 
+    retrieveSelectedObjects(){
+      get_with_filter(this.props.object_type,'id',this.props.filteredObjects)
+      .then(
+        (result) => {
+          this.setState({bookmarks: result});
+        }
+      );
+    };
+
   render() {
     const Component = Components[this.props.obj_component]
+    var items = this.state.items
 
-    var items = []
-    if (this.props.filteredObjects === null || this.props.filteredObjects.length === 0) {
-      items = this.state.items
+    if (this.props.filteredObjects == null || this.props.filteredObjects.length === 0 && this.props.compact == false) {
+      items = this.state.items;
     }
     else {
-      items = this.props.filteredObjects
+      items = this.state.bookmarks;
     }
-    return (
-      <ul>
-        {items.map(item => (
-          <Component key={item.id} item={item} removeIdFromSelectList={this.props.removeIdFromSelectList} addIdToSelectList={this.props.addIdToSelectList}/>
-        ))}
-      </ul>
-    );
+    if (items.length > 0){
+      return (
+        <div class='grid-container'>
+          {items.map(item => (
+              <Component key={item.id} item={item} removeIdFromSelectList={this.props.removeIdFromSelectList} addIdToSelectList={this.props.addIdToSelectList} compact={this.props.compact}/>
+          ))}
+        </div>
+      );
+    }
+    else{
+      return (
+        <div>No Objects Loaded</div>
+      )
+    }
   }
 }
 

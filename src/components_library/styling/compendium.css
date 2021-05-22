@@ -11,7 +11,7 @@
 .btn {
   margin-top: 5px;
   margin-left: 10px;
-  min-width: 100px;
+  min-width: 40px;
   float: left;
 }
 
@@ -30,6 +30,11 @@
   border-color:#E69A28;
 }
 
+#action-sub-nav-info {
+  background-color: #4479cf;
+  border-color: #4479cf;
+}
+
 #compendium-search{
   margin-bottom: 0px;
 }
@@ -46,12 +51,14 @@
 #search-bar {
   margin-top: 5px;
   min-width: 50px;
-  max-width: 300px;
+  max-width: 175px;
   float: right;
 }
 
 .compendium-body {
   margin-top: 100px;
+  max-width: 100%;
+  margin-left: 20%;
 }
 
 .compendium-body ul {

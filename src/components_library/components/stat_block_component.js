@@ -21,6 +21,7 @@ class StatBlockComponent extends React.Component {
 
 render() {
   var item = this.state.item;
+  if(this.props.compact == false || this.props.compact == null){
     return(
       <div class="stat-block wide">
         <div class="orange-border">
@@ -140,6 +141,21 @@ render() {
           <hr class="orange-border bottom" />
       </div>
     );
+  }
+  else if (this.props.compact == true){
+    return (
+    <div class="stat-block wide">
+      <div class="creature-heading">
+        <ReactBootStrap.Form.Check value={item.id}/>
+        <h1>{item.name}</h1>
+        <h2>{item.size} {item.creature_type} {item.alignment}</h2>
+        <h2>Challenge Rating:  {item.challenge_rating}</h2>
+        <h2> ({item.experience_points} xp)</h2>
+        <h2>Armor Class: {item.armor_class}</h2>
+        <h2>Hit Points: {item.hit_points}</h2>
+      </div>
+    </div>);
+  }
   }
 }
 
