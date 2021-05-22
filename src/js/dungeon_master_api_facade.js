@@ -1,4 +1,4 @@
-var url = 'https://campaign-manager-api.herokuapp.com/'
+var url = 'http://localhost:3000/'
 
 export function delete_objects(ids, object_type) {
   fetch(url + object_type.toString() + '_destroy/',
@@ -32,14 +32,17 @@ export function get(object_type) {
 }
 
 export function get_with_filter(object_type, filter, values) {
-  return fetch(url + object_type.toString() + '?search_param=' + generate_search_url_params(filter, values),
-  {
-    method: 'GET',
-    headers:
+  if (values.length > 0){
+    return fetch(url + object_type.toString() + '?search_param=' + generate_search_url_params(filter, values),
     {
-      'Content-type': 'application/json; charset=UTF-8'
-    }})
-    .then(response => {return response.json()});
+      method: 'GET',
+      headers:
+      {
+        'Content-type': 'application/json; charset=UTF-8'
+      }})
+      .then(response => {return response.json()});
+  }
+
 }
 
 export function edit_objects(object_type, params) {

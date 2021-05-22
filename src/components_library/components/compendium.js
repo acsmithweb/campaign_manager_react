@@ -3,6 +3,7 @@ import ActionConfirmationModal from './modals/action_confirmation_modal.js';
 import AddObjectModal from './modals/add_object_modal.js';
 import EditObjectModal from './modals/edit_object_modal.js';
 import CompendiumActionBar from './compendium_action_bar.js';
+import WorkspaceDrawer from './workspace_drawer.js';
 import ObjectLibrary from './library.js';
 import "../styling/compendium.css";
 import {delete_objects, get_with_filter} from '../../js/dungeon_master_api_facade.js';
@@ -20,6 +21,7 @@ class ObjectCompendium extends React.Component {
     this.removeIdFromSelectList = this.removeIdFromSelectList.bind(this);
     this.searchObjectText = this.searchObjectText.bind(this);
     this.deleteObjects = this.deleteObjects.bind(this);
+    this.storeSelectedObjects = this.storeSelectedObjects.bind(this);
     this.updateSearchValue = this.updateSearchValue.bind(this);
     this.retrieveSelectedObjects = this.retrieveSelectedObjects.bind(this);
   }
@@ -91,6 +93,10 @@ class ObjectCompendium extends React.Component {
     this.setSelectedObjects(new_selected_items);
   }
 
+  storeSelectedObjects(objects) {
+    this.props.storeObjects(this.state.selected_items, this.state.object_type)
+  }
+
   render(){
     return (
       <div>
@@ -98,40 +104,46 @@ class ObjectCompendium extends React.Component {
           createAction = {this.toggleAddModal}
           editAction = {this.toggleEditModal}
           deleteAction = {this.toggleActionConfirmationModal}
+          storeAction = {this.storeSelectedObjects}
           searchAction = {this.searchObjectText}
           search_value = {this.state.search_value}
           updateSearchValue = {this.updateSearchValue}
           object = {this.state.object_type}
-      />
+        />
+        <AddObjectModal
+          toggleModal = {this.toggleAddModal}
+          show = {this.state.show_add_object}
+          objForm = {this.props.objForm}
+          object_type = {this.state.object_type}
+        />
+        <EditObjectModal
+          toggleModal = {this.toggleEditModal}
+          show = {this.state.show_edit_object}
+          selected_items = {this.state.edit_items}
+          objForm = {this.props.objForm}
+          object_type = {this.state.object_type}
+        />
+        <ActionConfirmationModal
+          toggleModal = {this.toggleActionConfirmationModal}
+          message = {'Are you sure you want to delete these ' + this.state.object_type + '?'}
+          show = {this.state.show_delete_confirmation}
+          execute_action = {this.deleteObjects}
+        />
         <div className='compendium-body' key={this.state.key}>
-          <AddObjectModal
-            toggleModal = {this.toggleAddModal}
-            show = {this.state.show_add_object}
-            objForm = {this.props.objForm}
-            object_type = {this.state.object_type}
-          />
-          <EditObjectModal
-            toggleModal = {this.toggleEditModal}
-            show = {this.state.show_edit_object}
-            selected_items = {this.state.edit_items}
-            objForm = {this.props.objForm}
-            object_type = {this.state.object_type}
-          />
-          <ActionConfirmationModal
-            toggleModal = {this.toggleActionConfirmationModal}
-            message = {'Are you sure you want to delete these ' + this.state.object_type + '?'}
-            show = {this.state.show_delete_confirmation}
-            execute_action = {this.deleteObjects}
-          />
-          <ObjectLibrary
-            filteredObjects={this.state.search_results}
-            addIdToSelectList={this.addIdToSelectList}
-            removeIdFromSelectList={this.removeIdFromSelectList}
-            obj_component={this.props.obj_component}
-            object_type={this.props.object_type}
-            key = {this.state.key}
-          />
+            <ObjectLibrary
+              filteredObjects={this.state.search_results}
+              addIdToSelectList={this.addIdToSelectList}
+              removeIdFromSelectList={this.removeIdFromSelectList}
+              obj_component={this.props.obj_component}
+              object_type={this.props.object_type}
+              key = {this.state.key}
+            />
         </div>
+        <WorkspaceDrawer
+          bookmarkedSpells = {this.props.drawerInfoSpells}
+          bookmarkedCreatures = {this.props.drawerInfoCreatures}
+          key = {this.state.key}
+        />
       </div>
     )
   }

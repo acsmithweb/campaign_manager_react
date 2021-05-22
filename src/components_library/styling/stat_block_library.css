@@ -15,15 +15,14 @@ body *{
   display: inline-block;
   vertical-align: top;
   width: 17%;
-  min-width:280px;
+  min-width:220px;
   background: #FDF1DC;
   padding: 5px 10px 20px;
   box-shadow: 0 0 1.5em #867453;
   white-space: pre-wrap;
 }
 .stat-block.wide{
-  width: 30%;
-  min-width: 560px;
+  min-width: 85%;
   text-align: center;
 }
 .stat-block.wide .section-left,

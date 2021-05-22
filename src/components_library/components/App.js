@@ -6,9 +6,10 @@ import * as ReactBootStrap from "react-bootstrap"
 class App extends React.Component {
   constructor(props) {
     super();
-    this.state = {creatureCompendiumVisible: false, spellCompendiumVisible: false}
+    this.state = {creatureCompendiumVisible: false, spellCompendiumVisible: false, storedStatBlocks: [], storedSpells: [], storedObjects: {stat_blocks: [], spells: []}}
     this._toggleCreatureCompendium = this._toggleCreatureCompendium.bind(this);
     this.toggleSpellCompendium = this.toggleSpellCompendium.bind(this);
+    this.addObjectToStorage = this.addObjectToStorage.bind(this);
   }
 
   _toggleCreatureCompendium(){
@@ -21,12 +22,27 @@ class App extends React.Component {
     this.setState({spellCompendiumVisible: !(this.state.spellCompendiumVisible)});
   }
 
+  addObjectToStorage(objects, object_type){
+    switch(object_type){
+      case 'stat_blocks':
+        var total_items = this.state.storedStatBlocks.concat(objects);
+        total_items = [...new Set([...this.state.storedStatBlocks,...objects])]
+        this.setState({storedStatBlocks: total_items});
+        break;
+      case 'spells':
+        var total_items = this.state.storedSpells.concat(objects);
+        total_items = [...new Set([...this.state.storedSpells,...objects])]
+        this.setState({storedSpells: total_items});
+        break;
+    }
+  }
+
   creatureCompendiumView(){
-    return (this.state.creatureCompendiumVisible ? <ObjectCompendium object_type={'stat_blocks'} objForm={'StatBlockForm'} obj_component={'StatBlockComponent'}/> : null);
+    return (this.state.creatureCompendiumVisible ? <ObjectCompendium object_type={'stat_blocks'} objForm={'StatBlockForm'} obj_component={'StatBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells}/> : null);
   }
 
   spellCompendiumView(){
-    return (this.state.spellCompendiumVisible ? <ObjectCompendium object_type={'spells'} objForm={'SpellForm'} obj_component={'SpellBlockComponent'}/> : null);
+    return (this.state.spellCompendiumVisible ? <ObjectCompendium object_type={'spells'} objForm={'SpellForm'} obj_component={'SpellBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells}/> : null);
   }
 
   render() {
@@ -44,8 +60,8 @@ class App extends React.Component {
         </ReactBootStrap.Navbar.Collapse>
       </ReactBootStrap.Navbar>
         <div>
-        {this.creatureCompendiumView()}
-        {this.spellCompendiumView()}
+          {this.creatureCompendiumView()}
+          {this.spellCompendiumView()}
         </div>
       </div>
     );

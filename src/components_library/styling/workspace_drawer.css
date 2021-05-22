@@ -1,0 +1,21 @@
+#sidebar {
+ height: 85vh;
+ z-index: 1;
+ position: fixed;
+ width: 20%;
+ top: 104px;
+}
+
+#sidebar .list-group-item {
+ border-radius: 0;
+ color: #000;
+ border-left: 0;
+ border-right: 0;
+ white-space: nowrap;
+ text-decoration: none;
+}
+
+.compact {
+  max-height: 800px;
+  overflow-y: auto;
+}
