@@ -10,6 +10,7 @@
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.4.1",
+    "firebase": "^8.6.8",
     "react": "^16.12.0",
     "react-beautiful-dnd": "^13.0.0",
     "react-bootstrap": "^1.0.0-beta.17",
@@ -38,5 +39,18 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acsmithweb/campaign_manager_react.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acsmithweb/campaign_manager_react/issues"
+  },
+  "homepage": "https://github.com/acsmithweb/campaign_manager_react#readme"
 }
