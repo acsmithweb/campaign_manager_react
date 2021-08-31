@@ -1,0 +1,173 @@
+.character-sheet {
+  margin-top: 100px;
+  margin-left: 25%;
+  width: 68%;
+  z-index: 1;
+}
+
+.title-bar .col-sm-4 h6 {
+  margin-top: 23px;
+  margin-bottom: 0px;
+}
+
+.form-inline input[type=checkbox] {
+  transform: scale(1.5);
+  margin-left:10px;
+}
+
+.stat-box {
+  height: 100px;
+}
+
+.strength-row {
+  margin-top: 30px;
+}
+
+.prof-bonus {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.combat-box {
+  width: 100px;
+}
+
+.combat-section {
+  margin-top: 7px;
+  margin-left: -25px;
+  margin-right: -125px;
+}
+
+.combat-value {
+  margin-left: 50px;
+}
+
+.personality-traits .form-control{
+  width: 250px;
+  height: 50px;
+  resize: none;
+  font-size: 8px;
+  text-align: center;
+}
+
+.bottom-health .form-control #total-hit-dice{
+  width: 100px;
+  height: 25px;
+  resize: none;
+  font-size: 8px;
+  text-align: center;
+}
+
+.speed {
+  margin-left: -30px;
+}
+
+.saving-throws.col-sm-2 {
+  margin-top: -20px;
+  max-width: 120px;
+  margin-left: -10px;
+  margin-right: -35px;
+}
+
+.bottom-health sub{
+  margin-left: -30px;
+}
+
+.bottom-health {
+  margin-left: 30px;
+}
+
+.skills.col-sm-2 {
+  margin-top: -40px;
+  margin-bottom: -5px;
+  max-width: 240px;
+  margin-left: -10px;
+  margin-right: -35px;
+}
+
+.skills .form-inline input[type=checkbox] {
+  transform: scale(.75);
+}
+
+.skills sub{
+  margin-right: 3px;
+  margin-top: 6px;
+}
+
+.dex-row .hp-box {
+  margin-top: -40px;
+  margin-left: 25px;
+  vertical-align: left;
+}
+
+.dex-row .max-hp {
+  margin-left: 40px;
+  min-width: 57%;
+}
+
+.dex-row .current-hp {
+  min-width: 50%;
+}
+
+.dex-row input[type=number]{
+  width: 70px;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.saving-throws .form-inline input[type=checkbox] {
+  transform: scale(.75);
+}
+
+.saving-throws sub{
+  margin-right: 3px;
+  margin-top: 6px;
+}
+
+.init .combat-value {
+  margin-left: 15%;
+}
+
+.armor-class .combat-value {
+  margin-left: 35%;
+}
+
+.speed .combat-value {
+  margin-left: 7%;
+}
+
+.combat-row {
+  text-align: center;
+  width: 300px;
+}
+
+.test-block {
+  min-width: 800px;
+  text-align: center;
+}
+
+.stat-box .stat-mod {
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+.stat-box .stat-value {
+  margin-left: 20px;
+}
+
+.stat-box .stat-title {
+  text-align: center;
+}
+
+.top-row h6 {
+  max-height: 5px;
+}
+
+.bottom-row {
+  padding-top: 10px;
+}
+
+.bottom-row h6 {
+  max-height: 5px;
+}
