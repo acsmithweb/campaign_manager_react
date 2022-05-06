@@ -48,18 +48,92 @@
   resize: none;
   font-size: 8px;
   text-align: center;
+  margin-top: 25px;
 }
 
-.bottom-health .form-control #total-hit-dice{
+.weapons .form-control{
   width: 100px;
-  height: 25px;
+}
+
+.weapons h6{
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+.bonds-flaws .form-control{
+  width: 250px;
+  height: 50px;
   resize: none;
   font-size: 8px;
   text-align: center;
 }
 
+.bond .form-control{
+  margin-top: -25px;
+  margin-bottom: 20px;
+  margin-left: -15px;
+}
+
+.ideal .form-control{
+  margin-top: 0px;
+}
+
+.bottom-health{
+  margin-right: -7px;
+}
+
+.weapons .form-control{
+  font-size: 8px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.bottom-health sub{
+  margin-top: 25px;
+}
+
+.bottom-health .form-control{
+  width: 100px;
+  height: 30px;
+  resize: none;
+  font-size: 12px;
+  text-align: center;
+}
+
+.weapon-text .form-control{
+  margin-top: 15px;
+  width: 215px;
+  height: 200px;
+  position: absolute;
+  resize: none;
+}
+
+.features-traits .form-control{
+  margin-left: -85px;
+  margin-top: 5px;
+  width: 250px;
+  height: 503px;
+  position: absolute;
+  resize: none;
+}
+
+.cha-row .prof-language .form-control{
+  height: 150px;
+  position: absolute;
+  resize: none;
+}
+
 .speed {
   margin-left: -30px;
+}
+
+.equipment .form-control{
+  margin-left: 43px;
+  margin-top: 20px;
+  height: 180px;
+  position: absolute;
+  resize: none;
 }
 
 .saving-throws.col-sm-2 {
@@ -74,6 +148,7 @@
 }
 
 .bottom-health {
+  margin-top: -30px;
   margin-left: 30px;
 }
 
@@ -82,7 +157,7 @@
   margin-bottom: -5px;
   max-width: 240px;
   margin-left: -10px;
-  margin-right: -35px;
+  margin-right: -40px;
 }
 
 .skills .form-inline input[type=checkbox] {

@@ -186,10 +186,10 @@ class CharacterSheetComponent extends React.Component {
               </div>
             </div>
           </div>
-          <div class="col-sm-4 personality-traits">
-          <ReactBootStrap.Form.Group className="mb-2" controlId="exampleForm.ControlTextarea1">
-            <ReactBootStrap.Form.Control as="textarea" placeholder="Ideals"/>
-          </ReactBootStrap.Form.Group>
+          <div class="col-sm-4 personality-traits ideal">
+            <ReactBootStrap.Form.Group className="mb-2" controlId="exampleForm.ControlTextarea1">
+              <ReactBootStrap.Form.Control as="textarea" placeholder="Ideals"/>
+            </ReactBootStrap.Form.Group>
           </div>
         </div>
         <div class="row con-row">
@@ -236,16 +236,14 @@ class CharacterSheetComponent extends React.Component {
           </div>
         <div class="bottom-health col-sm-2">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="hit-die-info col-sm-6">
+              <sub>Total HD</sub>
               <div class="row">
-              <sub>Total</sub>
-                <ReactBootStrap.Form.Control as="textarea" placeholder="Total Hit Dice" id='total-hit-dice'/>
+                <ReactBootStrap.Form.Control as="textarea" placeholder="Total HD" id='total-hit-dice'/>
               </div>
+              <sub>Hit Dice</sub>
               <div class="row">
                 <ReactBootStrap.Form.Control as="textarea" placeholder="Hit Dice" id='remaining-hit-dice'/>
-              </div>
-              <div class="row">
-                <sub>Hit Dice</sub>
               </div>
             </div>
             <div class="col-sm-6">
@@ -262,6 +260,18 @@ class CharacterSheetComponent extends React.Component {
                 <ReactBootStrap.Form.Check/>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="col-sm-4 bonds-flaws">
+          <div class="bond srow">
+            <ReactBootStrap.Form.Group className="mb-2" controlId="exampleForm.ControlTextarea1">
+              <ReactBootStrap.Form.Control as="textarea" placeholder="Bonds"/>
+            </ReactBootStrap.Form.Group>
+          </div>
+          <div class="row">
+            <ReactBootStrap.Form.Group className="mb-2" controlId="exampleForm.ControlTextarea1">
+              <ReactBootStrap.Form.Control as="textarea" placeholder="Flaws"/>
+            </ReactBootStrap.Form.Group>
           </div>
         </div>
         </div>
@@ -307,6 +317,43 @@ class CharacterSheetComponent extends React.Component {
               <sub>Intimidation</sub>
             </div>
           </div>
+          <div class="col-sm-3 weapons">
+            <div class="row">
+              <ReactBootStrap.Form.Control as="select">
+                <option>Weapons</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </ReactBootStrap.Form.Control>
+              <h6>+3</h6>
+              <h6>1d8+3 p</h6>
+            </div>
+            <div class="row">
+              <ReactBootStrap.Form.Control as="select">
+                <option>Weapons</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </ReactBootStrap.Form.Control>
+              <h6>+3</h6>
+              <h6>1d8+3 p</h6>
+            </div>
+            <div class="row">
+              <ReactBootStrap.Form.Control as="select">
+                <option>Weapons</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </ReactBootStrap.Form.Control>
+              <h6>+3</h6>
+              <h6>1d8+3 p</h6>
+            </div>
+          </div>
+          <div class="features-traits">
+            <ReactBootStrap.Form.Group className="mb-2" controlId="exampleForm.ControlTextarea1">
+              <ReactBootStrap.Form.Control as="textarea" placeholder="Features/Traits"/>
+            </ReactBootStrap.Form.Group>
+          </div>
         </div>
         <div class="row wis-row">
           <div class="stat-box col-sm-1">
@@ -349,6 +396,11 @@ class CharacterSheetComponent extends React.Component {
               <sub> +3 </sub>
               <sub>Nature</sub>
             </div>
+          </div>
+          <div class="weapon-text">
+            <ReactBootStrap.Form.Group className="mb-2" controlId="exampleForm.ControlTextarea1">
+              <ReactBootStrap.Form.Control as="textarea" placeholder="Attacks/Spellcasting"/>
+            </ReactBootStrap.Form.Group>
           </div>
         </div>
         <div class="row cha-row">
@@ -406,6 +458,24 @@ class CharacterSheetComponent extends React.Component {
               <sub> +3 </sub>
               <sub>Survival</sub>
             </div>
+          </div>
+        </div>
+        <div class="row cha-row">
+          <div class="col-sm-2">
+            <ReactBootStrap.Form.Label class="form-inline">
+              <sub>Passive Perception</sub>
+              <h5 class="prof-bonus">+6</h5>
+            </ReactBootStrap.Form.Label>
+            <div class="prof-language">
+              <ReactBootStrap.Form.Group className="mb-2" controlId="exampleForm.ControlTextarea1">
+                <ReactBootStrap.Form.Control as="textarea" placeholder="Proficiencies/Languages"/>
+              </ReactBootStrap.Form.Group>
+            </div>
+          </div>
+          <div class="col-sm-2 equipment">
+            <ReactBootStrap.Form.Group className="mb-2" controlId="exampleForm.ControlTextarea1">
+              <ReactBootStrap.Form.Control as="textarea" placeholder="Proficiencies/Languages"/>
+            </ReactBootStrap.Form.Group>
           </div>
         </div>
       </div>
