@@ -1,163 +1,205 @@
 .character-sheet {
-  margin-top: 100px;
+  margin-top: 6.25em;
   margin-left: 25%;
   width: 68%;
   z-index: 1;
 }
 
-.title-bar .col-sm-4 h6 {
-  margin-top: 23px;
-  margin-bottom: 0px;
+.title-bar {
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+.title-bar sup{
+  text-decoration: underline;
 }
 
 .form-inline input[type=checkbox] {
   transform: scale(1.5);
-  margin-left:10px;
 }
 
 .stat-box {
-  height: 100px;
+  display: table;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 1em;
+  margin-bottom: 1em;
+}
+
+#char_name {
+  max-width: 7em;
+  text-align: center;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: .25em;
+  border: 0;
+  box-shadow: none;
+}
+
+#char_name::placeholder {
+            color: black;
+            opacity: 1;
+}
+
+#char_name::
+
+.stat-value{
+  padding-left: .2em;
+}
+
+.stat-box .row{
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: .25em;
+  max-height: 3em;
+}
+
+.character-sheet-container{
+  max-width: 50%;
+  padding-top: 5em;
+  margin-left: 40%;
+}
+
+.bottom-row{
+  margin-top: 1em;
+}
+
+.stat-mod {
+  padding-top: .25em;
+  margin-left: -5px;
 }
 
 .strength-row {
-  margin-top: 30px;
+  margin-top: 1.875em;
 }
 
 .prof-bonus {
-  margin-top: 10px;
-  padding-left: 10px;
+  margin-top: .625em;
 }
 
 .combat-box {
-  width: 100px;
+  width: 6.25em;
+}
+
+.container {
+  max-width: 970px;
 }
 
 .combat-section {
-  margin-top: 7px;
-  margin-left: -25px;
-  margin-right: -125px;
+  margin-top: .4375em;
 }
 
 .combat-value {
-  margin-left: 50px;
 }
 
 .personality-traits .form-control{
-  width: 250px;
-  height: 50px;
+  width: 15.625em;
+  height: 3.125em;
   resize: none;
-  font-size: 8px;
+  font-size: .5em;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 1.5625em;
 }
 
 .weapons .form-control{
-  width: 100px;
+  width: 6.25em;
 }
 
 .weapons h6{
-  margin-top: 15px;
-  margin-left: 10px;
-  margin-bottom: 0px;
+  margin-top: .9375em;
+  margin-left: .625em;
+  margin-bottom: 0em;
 }
 
 .bonds-flaws .form-control{
-  width: 250px;
-  height: 50px;
+  width: 15.625em;
+  height: 3.125em;
   resize: none;
-  font-size: 8px;
+  font-size: .5em;
   text-align: center;
 }
 
 .bond .form-control{
-  margin-top: -25px;
-  margin-bottom: 20px;
-  margin-left: -15px;
+  margin-top: -1.5625em;
+  margin-bottom: 1.5625em;
 }
 
 .ideal .form-control{
-  margin-top: 0px;
+  margin-top: 0em;
 }
 
 .bottom-health{
-  margin-right: -7px;
 }
 
 .weapons .form-control{
-  font-size: 8px;
+  font-size: .5em;
   text-align: left;
-  margin-top: 10px;
+  margin-top: .625em;
 }
 
 .bottom-health sub{
-  margin-top: 25px;
+  margin-top: 1.5625em;
 }
 
 .bottom-health .form-control{
-  width: 100px;
-  height: 30px;
+  width: 6.25em;
+  height: 1.875em;
   resize: none;
-  font-size: 12px;
+  font-size: .75em;
   text-align: center;
 }
 
 .weapon-text .form-control{
-  margin-top: 15px;
-  width: 215px;
-  height: 200px;
+  margin-top: .9375em;
+  width: 13.5em;
+  height: 12.5em;
   position: absolute;
   resize: none;
 }
 
 .features-traits .form-control{
-  margin-left: -85px;
-  margin-top: 5px;
-  width: 250px;
-  height: 503px;
+  margin-top: 0.3125em;
+  width: 15.625em;
+  height: 31.4375em;
   position: absolute;
   resize: none;
 }
 
 .cha-row .prof-language .form-control{
-  height: 150px;
+  height: 9.375em;
   position: absolute;
   resize: none;
 }
 
 .speed {
-  margin-left: -30px;
 }
 
 .equipment .form-control{
-  margin-left: 43px;
-  margin-top: 20px;
-  height: 180px;
+  margin-top: 1.5625em;
+  margin-left: 4.25em;
+  height: 11.25em;
   position: absolute;
   resize: none;
 }
 
 .saving-throws.col-sm-2 {
-  margin-top: -20px;
-  max-width: 120px;
-  margin-left: -10px;
-  margin-right: -35px;
+  margin-top: -1.5625em;
+  max-width: 11.5625em;
 }
 
 .bottom-health sub{
-  margin-left: -30px;
+  margin-left: -1.875em;
 }
 
 .bottom-health {
-  margin-top: -30px;
-  margin-left: 30px;
+  margin-top: -1.875em;
 }
 
 .skills.col-sm-2 {
-  margin-top: -40px;
-  margin-bottom: -5px;
-  max-width: 240px;
-  margin-left: -10px;
-  margin-right: -40px;
+  margin-top: -2.5em;
+  margin-bottom: -0.3125em;
+  max-width: 15em;
 }
 
 .skills .form-inline input[type=checkbox] {
@@ -165,18 +207,16 @@
 }
 
 .skills sub{
-  margin-right: 3px;
-  margin-top: 6px;
+  margin-right: .1875em;
+  margin-top: .375em;
 }
 
-.dex-row .hp-box {
-  margin-top: -40px;
-  margin-left: 25px;
+.hp-box {
+  margin-top: -2.5em;
   vertical-align: left;
 }
 
 .dex-row .max-hp {
-  margin-left: 40px;
   min-width: 57%;
 }
 
@@ -185,18 +225,13 @@
 }
 
 .dex-row input[type=number]{
-  width: 70px;
-  margin-left: 5px;
+  width: 4.375em;
+  margin-left: .3125em;
   text-align: center;
 }
 
 .saving-throws .form-inline input[type=checkbox] {
   transform: scale(.75);
-}
-
-.saving-throws sub{
-  margin-right: 3px;
-  margin-top: 6px;
 }
 
 .init .combat-value {
@@ -213,36 +248,18 @@
 
 .combat-row {
   text-align: center;
-  width: 300px;
+  width: 18.75em;
 }
 
 .test-block {
-  min-width: 800px;
+  min-width: 50em;
   text-align: center;
 }
 
 .stat-box .stat-mod {
-  margin-top: 15px;
-  margin-left: 10px;
-  margin-bottom: 0px;
-}
-
-.stat-box .stat-value {
-  margin-left: 20px;
+  margin-top: .25em;
 }
 
 .stat-box .stat-title {
-  text-align: center;
-}
-
-.top-row h6 {
-  max-height: 5px;
-}
-
-.bottom-row {
-  padding-top: 10px;
-}
-
-.bottom-row h6 {
-  max-height: 5px;
+  padding-top: .5em;
 }
