@@ -1,10 +1,3 @@
-.character-sheet {
-  margin-top: 6.25em;
-  margin-left: 25%;
-  width: 68%;
-  z-index: 1;
-}
-
 .title-bar {
   margin-bottom: 1em;
   width: 100%;
@@ -15,7 +8,55 @@
 }
 
 .form-inline input[type=checkbox] {
-  transform: scale(1.5);
+  transform: scale(1);
+}
+
+.checkbox-padding .form-inline input[type=checkbox] {
+  margin-left: 1em;
+}
+
+.checkbox-padding {
+  margin-bottom: .5em;
+}
+
+.saves-box p{
+  padding-top: 1em;
+}
+
+.skills-list .saves-row .saves-box{
+  margin-bottom: -2.3em;
+}
+
+.skills-list .saves-row{
+  width: 12.75em;
+  margin-left: 1.5em;
+  margin-right: -1em;
+}
+
+.skills-list{
+  border-style: solid;
+  border-width: thin;
+  border-radius: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-left: 1.25em;
+}
+
+.saves-box{
+  min-width: 50%;
+  margin-right: -2em;
+  margin-top: -1.5em;
+  margin-bottom: -.5em;
+}
+
+.prof-insp {
+  padding-left: 2em;
+  padding-bottom: 1em;
+  min-width: 10em;
+}
+
+.save-profs-box {
+  min-width: 8em;
 }
 
 .stat-box {
@@ -23,7 +64,7 @@
   border-style: solid;
   border-width: thin;
   border-radius: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 1.15em;
 }
 
 #char_name {
@@ -45,20 +86,24 @@
 #char_name::
 
 .stat-value{
-  padding-left: .2em;
+  padding-left: .3em;
 }
 
 .stat-box .row{
-  padding-left: 1.5em;
+  padding-left: 1.75em;
   padding-right: 1.5em;
   padding-top: .25em;
   max-height: 3em;
 }
 
 .character-sheet-container{
-  max-width: 50%;
-  padding-top: 5em;
-  margin-left: 40%;
+  max-width: 80%;
+  margin-top: 5em;
+  margin-left: 30%;
+  margin-right: 10%;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 1em;
 }
 
 .bottom-row{
@@ -74,23 +119,20 @@
   margin-top: 1.875em;
 }
 
-.prof-bonus {
-  margin-top: .625em;
+.speed {
+  min-width: 4em;
 }
 
 .combat-box {
   width: 6.25em;
 }
 
+.combat-value{
+  padding-top: 2em;
+}
+
 .container {
   max-width: 970px;
-}
-
-.combat-section {
-  margin-top: .4375em;
-}
-
-.combat-value {
 }
 
 .personality-traits .form-control{
@@ -172,9 +214,6 @@
   resize: none;
 }
 
-.speed {
-}
-
 .equipment .form-control{
   margin-top: 1.5625em;
   margin-left: 4.25em;
@@ -183,9 +222,10 @@
   resize: none;
 }
 
-.saving-throws.col-sm-2 {
-  margin-top: -1.5625em;
-  max-width: 11.5625em;
+.saves-row{
+  width: 15em;
+  margin-left: 2em;
+  margin-bottom: -.75em;
 }
 
 .bottom-health sub{
@@ -194,12 +234,6 @@
 
 .bottom-health {
   margin-top: -1.875em;
-}
-
-.skills.col-sm-2 {
-  margin-top: -2.5em;
-  margin-bottom: -0.3125em;
-  max-width: 15em;
 }
 
 .skills .form-inline input[type=checkbox] {
@@ -234,8 +268,12 @@
   transform: scale(.75);
 }
 
-.init .combat-value {
-  margin-left: 15%;
+.init {
+  min-width: 4em;
+}
+
+.armor-class {
+  min-width: 6em;
 }
 
 .armor-class .combat-value {

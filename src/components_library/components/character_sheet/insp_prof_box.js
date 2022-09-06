@@ -12,8 +12,8 @@ class InspProfBox extends React.Component {
 
   render(){
     return(
-      <div>
-        <div class="row">
+      <div class="prof-insp">
+        <div class="row checkbox-padding">
           <ReactBootStrap.Form.Label class="form-inline">
             <sub>Inspiration</sub>
             <ReactBootStrap.Form.Check/>
@@ -21,8 +21,7 @@ class InspProfBox extends React.Component {
         </div>
         <div class="row">
           <ReactBootStrap.Form.Label class="form-inline">
-            <sub>Proficiency Bonus: </sub>
-            <h5 class="prof-bonus">+6</h5>
+            <sub>Prof. Bonus: +6</sub>
           </ReactBootStrap.Form.Label>
         </div>
       </div>

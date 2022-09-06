@@ -14,47 +14,47 @@ class SaveProficiencies extends React.Component {
   render() {
     return(
       <div>
-        <div class="saving-throws col-xl-12">
+        <div class="saves-row">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="saves-box">
               <ReactBootStrap.Form.Label class="form-inline">
                 <ReactBootStrap.Form.Check/>
+                <p> +3 STR</p>
               </ReactBootStrap.Form.Label>
-              <p> +3 STR</p>
             </div>
-            <div class="col-sm-6">
+            <div class="saves-box">
               <ReactBootStrap.Form.Label class="form-inline">
                 <ReactBootStrap.Form.Check/>
+                <p> +3 DEX</p>
               </ReactBootStrap.Form.Label>
-              <p> +3 DEX</p>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-6">
+            <div class="saves-box">
               <ReactBootStrap.Form.Label class="form-inline">
                 <ReactBootStrap.Form.Check/>
+                <p> +3 CON</p>
               </ReactBootStrap.Form.Label>
-              <p> +3 CON</p>
             </div>
-            <div class="col-sm-6">
+            <div class="saves-box">
               <ReactBootStrap.Form.Label class="form-inline">
                 <ReactBootStrap.Form.Check/>
+                <p> +3 INT</p>
               </ReactBootStrap.Form.Label>
-              <p> +3 INT</p>
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-6">
+            <div class="saves-box">
               <ReactBootStrap.Form.Label class="form-inline">
                 <ReactBootStrap.Form.Check/>
+                <p> +3 WIS</p>
               </ReactBootStrap.Form.Label>
-              <p> +3 WIS</p>
             </div>
-            <div class="col-sm-6">
+            <div class="saves-box">
               <ReactBootStrap.Form.Label class="form-inline">
                 <ReactBootStrap.Form.Check/>
+                <p> +3 CHA</p>
               </ReactBootStrap.Form.Label>
-              <p> +3 CHA</p>
             </div>
           </div>
         </div>

@@ -12,7 +12,7 @@ class ObjectCompendium extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = {key: 1, show_add_object: false, show_delete_confirmation: false, selected_items: [], edit_items: [], search_value: [], search_results:null, object_type: this.props.object_type};
+    this.state = {key: 1, show_add_object: false, show_delete_confirmation: false, selected_items: [], edit_items: [], search_value: [], search_results: null, object_type: this.props.object_type};
 
     this.toggleAddModal = this.toggleAddModal.bind(this);
     this.toggleEditModal = this.toggleEditModal.bind(this);
@@ -63,21 +63,20 @@ class ObjectCompendium extends React.Component {
 
   searchObjectText(event){
     event.preventDefault();
-    get_with_filter(this.state.object_type,'text',[this.state.search_value])
+    get_with_filter(this.state.object_type,'text', [this.state.search_value])
     .then(
       (result) => {
-        this.setState({search_results: result});
+        this.refreshCompendium(this.state.search_value, result);
       }
     );
-    this.refreshCompendium(this.state.search_value);
   }
 
   updateSearchValue(event){
     this.setState({search_value: event.target.value})
   }
 
-  refreshCompendium(search_value){
-    this.setState({search_value: search_value, search_results:[], selected_items:[], edit_items:[], key: Math.random()});
+  refreshCompendium(search_value, search_results){
+    this.setState({search_value: search_value, search_results: search_results, selected_items:[], edit_items:[], key: Math.random()});
   }
 
   setSelectedObjects(object_ids){
@@ -131,14 +130,14 @@ class ObjectCompendium extends React.Component {
           execute_action = {this.deleteObjects}
         />
         <div className='compendium-body' key={this.state.key}>
-            <ObjectLibrary
-              filteredObjects={this.state.search_results}
-              addIdToSelectList={this.addIdToSelectList}
-              removeIdFromSelectList={this.removeIdFromSelectList}
-              obj_component={this.props.obj_component}
-              object_type={this.props.object_type}
-              key = {this.state.key}
-            />
+          <ObjectLibrary
+            filteredObjects={this.state.search_results}
+            addIdToSelectList={this.addIdToSelectList}
+            removeIdFromSelectList={this.removeIdFromSelectList}
+            obj_component={this.props.obj_component}
+            object_type={this.props.object_type}
+            key = {this.state.key}
+          />
         </div>
         <WorkspaceDrawer
           bookmarkedSpells = {this.props.drawerInfoSpells}

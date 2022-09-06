@@ -8,19 +8,31 @@ import {get, get_with_filter} from '../../js/dungeon_master_api_facade.js';
 class ObjectLibrary extends React.Component {
   constructor(props) {
     super(props);
+
+    if (this.props.filteredObjects != null && this.props.filteredObjects.length > 0) {
+      var filtered_objects = this.props.filteredObjects;
+    }
+    else {
+      var filtered_objects = [];
+    }
+
     this.state = {
       error: null,
-      items: [],
+      items: filtered_objects,
       bookmarks: []
     };
+
+    console.log(this.state);
 
     this.populateCompendium = this.populateCompendium.bind(this);
   }
 
     componentDidMount() {
-      this.populateCompendium();
       if (this.props.filteredObjects != null && this.props.filteredObjects.length > 0) {
         this.retrieveSelectedObjects();
+      }
+      else{
+        this.populateCompendium();
       }
     };
 
@@ -37,12 +49,17 @@ class ObjectLibrary extends React.Component {
     };
 
     retrieveSelectedObjects(){
-      get_with_filter(this.props.object_type,'id',this.props.filteredObjects)
-      .then(
-        (result) => {
-          this.setState({bookmarks: result});
-        }
-      );
+      if (this.props.filteredObjects != null && typeof this.props.filteredObjects[0] === 'object'){
+        var items = this.props.filteredObjects;
+      }
+      else {
+        get_with_filter(this.props.object_type,'id',this.props.filteredObjects)
+        .then(
+          (result) => {
+            this.setState({bookmarks: result});
+          }
+        );
+      }
     };
 
   render() {
