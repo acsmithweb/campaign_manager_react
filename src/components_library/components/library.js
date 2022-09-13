@@ -9,74 +9,38 @@ class ObjectLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    if (this.props.filteredObjects != null && this.props.filteredObjects.length > 0) {
-      var filtered_objects = this.props.filteredObjects;
-    }
-    else {
-      var filtered_objects = [];
-    }
-
     this.state = {
-      error: null,
-      items: filtered_objects,
-      bookmarks: []
+      items: null,
+      error: null
     };
-
-    console.log(this.state);
-
-    this.populateCompendium = this.populateCompendium.bind(this);
   }
 
-    componentDidMount() {
-      if (this.props.filteredObjects != null && this.props.filteredObjects.length > 0) {
-        this.retrieveSelectedObjects();
+  componentDidMount(){
+    if(this.props.compact == false && this.props.filteredObjects.length == 0 && this.props.filteredObjects.length == 0){
+      get(this.props.object_type).then((result => {
+         this.setState({items: result});
       }
-      else{
-        this.populateCompendium();
-      }
+    ))};
+    if (this.props.filteredObjects != null && this.props.filteredObjects.length > 0){
+      this.setState({items: this.props.filteredObjects});
     };
-
-    populateCompendium() {
-      get(this.props.object_type)
+    if (this.props.bookmarks != null && this.props.bookmarks.length > 0) {
+      get_with_filter(this.props.object_type,'id',this.props.bookmarks)
       .then(
         (result) => {
-          this.setState({
-            items: result,
-            error: result.error
-          });
+          this.setState({items: result})
         }
       )
     };
-
-    retrieveSelectedObjects(){
-      if (this.props.filteredObjects != null && typeof this.props.filteredObjects[0] === 'object'){
-        var items = this.props.filteredObjects;
-      }
-      else {
-        get_with_filter(this.props.object_type,'id',this.props.filteredObjects)
-        .then(
-          (result) => {
-            this.setState({bookmarks: result});
-          }
-        );
-      }
-    };
-
+  }
   render() {
     const Component = Components[this.props.obj_component]
-    var items = this.state.items
-
-    if (this.props.filteredObjects == null || this.props.filteredObjects.length === 0 && this.props.compact == false) {
-      items = this.state.items;
-    }
-    else {
-      items = this.state.bookmarks;
-    }
-    if (items.length > 0){
+    var items = this.state.items;
+    if (items != null && items.length > 0){
       return (
-        <div class='grid-container'>
+        <div class='row'>
           {items.map(item => (
-              <Component key={item.id} item={item} removeIdFromSelectList={this.props.removeIdFromSelectList} addIdToSelectList={this.props.addIdToSelectList} compact={this.props.compact}/>
+              <Component key={item.id} item={item} removeIdFromSelectList={this.props.removeIdFromSelectList} addIdToSelectList={this.props.addIdToSelectList} compact={this.props.compact} />
           ))}
         </div>
       );

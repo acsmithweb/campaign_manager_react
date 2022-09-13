@@ -25,25 +25,19 @@ export function add_object(params, object_type) {
 }
 
 export function get(object_type) {
-  return fetch(url + object_type.toString() + '/')
-    .then(response => {
-      return response.json();
-    });
+  return fetch(url + object_type.toString() + '/',
+  {
+    method: 'GET',
+    headers:{'Content-type': 'application/json; charset=UTF-8'}
+  }).then(response => {return response.json();});
 }
 
 export function get_with_filter(object_type, filter, values) {
-  if (values.length > 0){
-    return fetch(url + object_type.toString() + '?search_param=' + generate_search_url_params(filter, values),
-    {
-      method: 'GET',
-      headers:
-      {
-        'Content-type': 'application/json; charset=UTF-8'
-      }})
-      .then(response => {
-        return response.json()});
-  }
-
+  return fetch(url + object_type.toString() + '?search_param=' + generate_search_url_params(filter, values),
+  {
+    method: 'GET',
+    headers:{'Content-type': 'application/json; charset=UTF-8'}
+  }).then(response => {return response.json()});
 }
 
 export function edit_objects(object_type, params) {

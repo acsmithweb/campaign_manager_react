@@ -56,27 +56,27 @@ render() {
                   <h4>STR</h4>
                   <p>{item.str}</p>
                 </div>
-              <div class="ability-dexterity">
-                <h4>DEX</h4>
-                <p>{item.dex}</p>
+                <div class="ability-dexterity">
+                  <h4>DEX</h4>
+                  <p>{item.dex}</p>
+                </div>
+                <div class="ability-constitution">
+                  <h4>CON</h4>
+                  <p>{item.con}</p>
+                </div>
+                <div class="ability-intelligence">
+                  <h4>INT</h4>
+                  <p>{item.int}</p>
+                </div>
+                <div class="ability-wisdom">
+                  <h4>WIS</h4>
+                  <p>{item.wis}</p>
+                </div>
+                <div class="ability-charisma">
+                  <h4>CHA</h4>
+                  <p>{item.cha}</p>
+                </div>
               </div>
-              <div class="ability-constitution">
-                <h4>CON</h4>
-                <p>{item.con}</p>
-              </div>
-              <div class="ability-intelligence">
-                <h4>INT</h4>
-                <p>{item.int}</p>
-              </div>
-              <div class="ability-wisdom">
-                <h4>WIS</h4>
-                <p>{item.wis}</p>
-              </div>
-              <div class="ability-charisma">
-                <h4>CHA</h4>
-                <p>{item.cha}</p>
-              </div>
-            </div>
             <svg height="5" width="100%" class="tapered-rule">
               <polyline points="0,0 400,2.5 0,5"></polyline>
             </svg>
@@ -84,10 +84,10 @@ render() {
               <h4>Saving Throws  </h4>
               <p>{item.saving_throws}</p>
             </div>
-            <div class="property-line">
-              <h4>Skills  </h4>
-              <p>{item.skills}</p>
-            </div>
+              <div class="property-line">
+                <h4>Skills  </h4>
+                <p>{item.skills}</p>
+              </div>
             <div class="property-line">
               <h4>Damage Vulnerabilities  </h4>
               <p>{item.vulnerability}</p>

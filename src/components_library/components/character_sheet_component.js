@@ -22,10 +22,10 @@ class CharacterSheetComponent extends React.Component {
         <div class="row">
           <TitleBar char_name={"Brutus"} char_class={"Rogue"} level={12} background={"Merchant"} player_name={"Aaron Smith"} race={"Tabaxi"} alignment="Lawful Good" exp="25000"/>
         </div>
-        <div class="container col-xl-12">
+        <div class="container col-auto">
           <div class="row">
             <CharStatColumn/>
-            <div class="col-xl-auto">
+            <div class="col-auto">
               <div class="row">
                 <InspProfBox/>
               </div>
@@ -36,7 +36,7 @@ class CharacterSheetComponent extends React.Component {
                 <SkillProficiencies/>
               </div>
             </div>
-            <div class="col-xl-6">
+            <div class="col-auto">
               <div class="row">
                 <div class="armor-class">
                   <div class="row">
