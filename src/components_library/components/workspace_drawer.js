@@ -7,7 +7,7 @@ class WorkspaceDrawer extends React.Component {
   render(){
     return (
     <div id='sidebar'>
-    <ReactBootStrap.Accordion class='col-sm-2 col-xs-1' >
+    <ReactBootStrap.Accordion class='col-xl-2 col-sm-4' >
       <ReactBootStrap.Card>
         <ReactBootStrap.Accordion.Toggle variant={ReactBootStrap.Card.Header} eventKey="0">
           Spells
@@ -15,7 +15,8 @@ class WorkspaceDrawer extends React.Component {
         <ReactBootStrap.Accordion.Collapse eventKey="0">
           <ReactBootStrap.Card.Body class='compact'>
           <ObjectLibrary
-            filteredObjects={this.props.bookmarkedSpells}
+            filteredObjects={null}
+            bookmarks={this.props.bookmarkedSpells}
             compact = {true}
             obj_component={'SpellBlockComponent'}
             object_type={'spells'}
@@ -25,7 +26,7 @@ class WorkspaceDrawer extends React.Component {
         </ReactBootStrap.Accordion.Collapse>
       </ReactBootStrap.Card>
     </ReactBootStrap.Accordion>
-    <ReactBootStrap.Accordion class='col-sm-2 col-xs-1'>
+    <ReactBootStrap.Accordion class='col-xl-2 col-sm-4'>
       <ReactBootStrap.Card>
         <ReactBootStrap.Accordion.Toggle variant={ReactBootStrap.Card.Header} eventKey="0">
           Creatures
@@ -33,7 +34,8 @@ class WorkspaceDrawer extends React.Component {
         <ReactBootStrap.Accordion.Collapse eventKey="0">
           <ReactBootStrap.Card.Body  class='compact'>
             <ObjectLibrary
-              filteredObjects={this.props.bookmarkedCreatures}
+              filteredObjects={null}
+              bookmarks={this.props.bookmarkedCreatures}
               compact = {true}
               obj_component={'StatBlockComponent'}
               object_type={'stat_blocks'}

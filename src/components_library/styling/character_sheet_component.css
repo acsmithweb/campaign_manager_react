@@ -1,88 +1,239 @@
-.character-sheet {
-  margin-top: 100px;
-  margin-left: 25%;
-  width: 68%;
-  z-index: 1;
+.title-bar {
+  margin-bottom: 1em;
+  width: 100%;
 }
 
-.title-bar .col-sm-4 h6 {
-  margin-top: 23px;
-  margin-bottom: 0px;
+.title-bar sup{
+  text-decoration: underline;
 }
 
 .form-inline input[type=checkbox] {
-  transform: scale(1.5);
-  margin-left:10px;
+  transform: scale(1);
+}
+
+.checkbox-padding .form-inline input[type=checkbox] {
+  margin-left: 1em;
+}
+
+.checkbox-padding {
+  margin-bottom: .5em;
+}
+
+.saves-box p{
+  padding-top: 1em;
+}
+
+.skills-list .saves-row .saves-box{
+  margin-bottom: -2.3em;
+}
+
+.skills-list .saves-row{
+  width: 12.75em;
+  margin-left: 1.5em;
+  margin-right: -1em;
+}
+
+.skills-list{
+  border-style: solid;
+  border-width: thin;
+  border-radius: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-left: 1.25em;
+}
+
+.saves-box{
+  min-width: 50%;
+  margin-right: -2em;
+  margin-top: -1.5em;
+  margin-bottom: -.5em;
+}
+
+.prof-insp {
+  padding-left: 2em;
+  padding-bottom: 1em;
+  min-width: 10em;
+}
+
+.save-profs-box {
+  min-width: 8em;
 }
 
 .stat-box {
-  height: 100px;
+  display: table;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 1em;
+  margin-bottom: 1.15em;
+}
+
+#char_name {
+  max-width: 7em;
+  text-align: center;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: .25em;
+  border: 0;
+  box-shadow: none;
+}
+
+#char_name::placeholder {
+            color: black;
+            opacity: 1;
+}
+
+#char_name::
+
+.stat-value{
+  padding-left: .3em;
+}
+
+.stat-box .row{
+  padding-left: 1.75em;
+  padding-right: 1.5em;
+  padding-top: .25em;
+  max-height: 3em;
+}
+
+.character-sheet-container{
+  max-width: 80%;
+  margin-top: 5em;
+  margin-left: 30%;
+  margin-right: 10%;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 1em;
+}
+
+.bottom-row{
+  margin-top: 1em;
+}
+
+.stat-mod {
+  padding-top: .25em;
+  margin-left: -5px;
 }
 
 .strength-row {
-  margin-top: 30px;
-}
-
-.prof-bonus {
-  margin-top: 10px;
-  padding-left: 10px;
-}
-
-.combat-box {
-  width: 100px;
-}
-
-.combat-section {
-  margin-top: 7px;
-  margin-left: -25px;
-  margin-right: -125px;
-}
-
-.combat-value {
-  margin-left: 50px;
-}
-
-.personality-traits .form-control{
-  width: 250px;
-  height: 50px;
-  resize: none;
-  font-size: 8px;
-  text-align: center;
-}
-
-.bottom-health .form-control #total-hit-dice{
-  width: 100px;
-  height: 25px;
-  resize: none;
-  font-size: 8px;
-  text-align: center;
+  margin-top: 1.875em;
 }
 
 .speed {
-  margin-left: -30px;
+  min-width: 4em;
 }
 
-.saving-throws.col-sm-2 {
-  margin-top: -20px;
-  max-width: 120px;
-  margin-left: -10px;
-  margin-right: -35px;
+.combat-box {
+  width: 6.25em;
+}
+
+.combat-value{
+  padding-top: 2em;
+}
+
+.container {
+  max-width: 970px;
+}
+
+.personality-traits .form-control{
+  width: 15.625em;
+  height: 3.125em;
+  resize: none;
+  font-size: .5em;
+  text-align: center;
+  margin-top: 1.5625em;
+}
+
+.weapons .form-control{
+  width: 6.25em;
+}
+
+.weapons h6{
+  margin-top: .9375em;
+  margin-left: .625em;
+  margin-bottom: 0em;
+}
+
+.bonds-flaws .form-control{
+  width: 15.625em;
+  height: 3.125em;
+  resize: none;
+  font-size: .5em;
+  text-align: center;
+}
+
+.bond .form-control{
+  margin-top: -1.5625em;
+  margin-bottom: 1.5625em;
+}
+
+.ideal .form-control{
+  margin-top: 0em;
+}
+
+.bottom-health{
+}
+
+.weapons .form-control{
+  font-size: .5em;
+  text-align: left;
+  margin-top: .625em;
 }
 
 .bottom-health sub{
-  margin-left: -30px;
+  margin-top: 1.5625em;
+}
+
+.bottom-health .form-control{
+  width: 6.25em;
+  height: 1.875em;
+  resize: none;
+  font-size: .75em;
+  text-align: center;
+}
+
+.weapon-text .form-control{
+  margin-top: .9375em;
+  width: 13.5em;
+  height: 12.5em;
+  position: absolute;
+  resize: none;
+}
+
+.features-traits .form-control{
+  margin-top: 0.3125em;
+  width: 15.625em;
+  height: 31.4375em;
+  position: absolute;
+  resize: none;
+}
+
+.cha-row .prof-language .form-control{
+  height: 9.375em;
+  position: absolute;
+  resize: none;
+}
+
+.equipment .form-control{
+  margin-top: 1.5625em;
+  margin-left: 4.25em;
+  height: 11.25em;
+  position: absolute;
+  resize: none;
+}
+
+.saves-row{
+  width: 15em;
+  margin-left: 2em;
+  margin-bottom: -.75em;
+}
+
+.bottom-health sub{
+  margin-left: -1.875em;
 }
 
 .bottom-health {
-  margin-left: 30px;
-}
-
-.skills.col-sm-2 {
-  margin-top: -40px;
-  margin-bottom: -5px;
-  max-width: 240px;
-  margin-left: -10px;
-  margin-right: -35px;
+  margin-top: -1.875em;
 }
 
 .skills .form-inline input[type=checkbox] {
@@ -90,18 +241,16 @@
 }
 
 .skills sub{
-  margin-right: 3px;
-  margin-top: 6px;
+  margin-right: .1875em;
+  margin-top: .375em;
 }
 
-.dex-row .hp-box {
-  margin-top: -40px;
-  margin-left: 25px;
+.hp-box {
+  margin-top: -2.5em;
   vertical-align: left;
 }
 
 .dex-row .max-hp {
-  margin-left: 40px;
   min-width: 57%;
 }
 
@@ -110,8 +259,8 @@
 }
 
 .dex-row input[type=number]{
-  width: 70px;
-  margin-left: 5px;
+  width: 4.375em;
+  margin-left: .3125em;
   text-align: center;
 }
 
@@ -119,13 +268,12 @@
   transform: scale(.75);
 }
 
-.saving-throws sub{
-  margin-right: 3px;
-  margin-top: 6px;
+.init {
+  min-width: 4em;
 }
 
-.init .combat-value {
-  margin-left: 15%;
+.armor-class {
+  min-width: 6em;
 }
 
 .armor-class .combat-value {
@@ -138,36 +286,18 @@
 
 .combat-row {
   text-align: center;
-  width: 300px;
+  width: 18.75em;
 }
 
 .test-block {
-  min-width: 800px;
+  min-width: 50em;
   text-align: center;
 }
 
 .stat-box .stat-mod {
-  margin-top: 15px;
-  margin-left: 10px;
-  margin-bottom: 0px;
-}
-
-.stat-box .stat-value {
-  margin-left: 20px;
+  margin-top: .25em;
 }
 
 .stat-box .stat-title {
-  text-align: center;
-}
-
-.top-row h6 {
-  max-height: 5px;
-}
-
-.bottom-row {
-  padding-top: 10px;
-}
-
-.bottom-row h6 {
-  max-height: 5px;
+  padding-top: .5em;
 }

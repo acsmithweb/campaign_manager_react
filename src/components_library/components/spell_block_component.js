@@ -33,7 +33,7 @@ render() {
   var item = this.props.item;
   if(this.props.compact == false || this.props.compact == null)
     return(
-      <div class="stat-block wide">
+      <div class="stat-block col-xl-5 col-sm-8">
         <div class="orange-border">
         </div>
         <ReactBootStrap.Form.Check onClick={this.selectSpellBlock} value={item.id}/>
