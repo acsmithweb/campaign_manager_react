@@ -12,7 +12,7 @@ class ObjectCompendium extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = {key: 1, show_add_object: false, show_delete_confirmation: false, selected_items: [], edit_items: [], search_value: [], search_results: [], object_type: this.props.object_type};
+    this.state = {key: 1, show_add_object: false, show_delete_confirmation: false, selected_items: [], edit_items: [], search_value: [], search_results: this.props.loaded_items, object_type: this.props.object_type};
 
     this.toggleAddModal = this.toggleAddModal.bind(this);
     this.toggleEditModal = this.toggleEditModal.bind(this);

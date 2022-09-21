@@ -3,6 +3,7 @@ import '../styling/App.css';
 import ObjectCompendium from './compendium.js';
 import CharacterSheetComponent from './character_sheet_component.js'
 import * as ReactBootStrap from "react-bootstrap"
+import {get, get_with_filter} from '../../js/dungeon_master_api_facade.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,6 +13,15 @@ class App extends React.Component {
     this.toggleSpellCompendium = this.toggleSpellCompendium.bind(this);
     this.togglePlayerCharacterSheetsCompendium = this.togglePlayerCharacterSheetsCompendium.bind(this);
     this.addObjectToStorage = this.addObjectToStorage.bind(this);
+  }
+
+  componentDidMount(){
+    get('stat_blocks').then((result => {
+     this.setState({monster_items: result});
+    }));
+    get('spells').then((result => {
+     this.setState({spell_items: result});
+    }));
   }
 
   _toggleCreatureCompendium(){
@@ -48,15 +58,14 @@ class App extends React.Component {
   }
 
   creatureCompendiumView(){
-    return (this.state.creatureCompendiumVisible ? <ObjectCompendium object_type={'stat_blocks'} objForm={'StatBlockForm'} obj_component={'StatBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells}/> : null);
+    return (this.state.creatureCompendiumVisible ? <ObjectCompendium loaded_items={this.state.monster_items} object_type={'stat_blocks'} objForm={'StatBlockForm'} obj_component={'StatBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells}/> : null);
   }
 
   spellCompendiumView(){
-    return (this.state.spellCompendiumVisible ? <ObjectCompendium object_type={'spells'} objForm={'SpellForm'} obj_component={'SpellBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells}/> : null);
+    return (this.state.spellCompendiumVisible ? <ObjectCompendium loaded_items={this.state.spell_items} object_type={'spells'} objForm={'SpellForm'} obj_component={'SpellBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells}/> : null);
   }
 
   characterSheetsCompendiumView(){
-    console.log('test!!!!!')
     return (this.state.playerCharacterSheetsCompendiumVisible ? <CharacterSheetComponent/> : null);
   }
 

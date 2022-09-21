@@ -15,7 +15,7 @@ class WorkspaceDrawer extends React.Component {
         <ReactBootStrap.Accordion.Collapse eventKey="0">
           <ReactBootStrap.Card.Body class='compact'>
           <ObjectLibrary
-            filteredObjects={[]}
+            filteredObjects={null}
             bookmarks={this.props.bookmarkedSpells}
             compact = {true}
             obj_component={'SpellBlockComponent'}
@@ -34,7 +34,7 @@ class WorkspaceDrawer extends React.Component {
         <ReactBootStrap.Accordion.Collapse eventKey="0">
           <ReactBootStrap.Card.Body  class='compact'>
             <ObjectLibrary
-              filteredObjects={[]}
+              filteredObjects={null}
               bookmarks={this.props.bookmarkedCreatures}
               compact = {true}
               obj_component={'StatBlockComponent'}
