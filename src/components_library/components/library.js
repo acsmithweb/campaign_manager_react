@@ -28,7 +28,6 @@ class ObjectLibrary extends React.Component {
     };
     if (this.props.compact == true && this.props.bookmarks != null && this.props.bookmarks.length > 0){
       const response = await get_with_filter(this.props.object_type,'id',this.props.bookmarks);
-      console.log(response);
       this.setState({items: response, display_items: response.slice(0,6)});
     };
   }
