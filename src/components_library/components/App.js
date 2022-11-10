@@ -8,8 +8,9 @@ import {get, get_with_filter} from '../../js/dungeon_master_api_facade.js';
 class App extends React.Component {
   constructor(props) {
     super();
-    this.state = {playerCharacterSheetsCompendiumVisible: false, creatureCompendiumVisible: false, spellCompendiumVisible: false, storedStatBlocks: [], storedSpells: [], storedObjects: {stat_blocks: [], spells: []}}
+    this.state = {playerCharacterSheetsCompendiumVisible: false, creatureCompendiumVisible: false, spellCompendiumVisible: false, storedStatBlocks: [], storedSpells: [], storedItems: [], storedObjects: {stat_blocks: [], spells: []}}
     this._toggleCreatureCompendium = this._toggleCreatureCompendium.bind(this);
+    this.toggleItemCompendium = this.toggleItemCompendium.bind(this);
     this.toggleSpellCompendium = this.toggleSpellCompendium.bind(this);
     this.togglePlayerCharacterSheetsCompendium = this.togglePlayerCharacterSheetsCompendium.bind(this);
     this.addObjectToStorage = this.addObjectToStorage.bind(this);
@@ -22,22 +23,35 @@ class App extends React.Component {
     get('spells').then((result => {
      this.setState({spell_items: result});
     }));
+    get('items').then((result => {
+     this.setState({items_items: result});
+    }));
   }
 
   _toggleCreatureCompendium(){
     this.setState({spellCompendiumVisible: false});
+    this.setState({itemCompendiumVisible: false});
     this.setState({playerCharacterSheetsCompendiumVisible: false});
     this.setState({creatureCompendiumVisible: !(this.state.creatureCompendiumVisible)});
   }
 
+  toggleItemCompendium(){
+    this.setState({creatureCompendiumVisible: false});
+    this.setState({spellCompendiumVisible: false});
+    this.setState({playerCharacterSheetsCompendiumVisible: false});
+    this.setState({itemCompendiumVisible: !(this.state.itemCompendiumVisible)});
+  }
+
   toggleSpellCompendium(){
     this.setState({creatureCompendiumVisible: false});
+    this.setState({itemCompendiumVisible: false});
     this.setState({playerCharacterSheetsCompendiumVisible: false});
     this.setState({spellCompendiumVisible: !(this.state.spellCompendiumVisible)});
   }
 
   togglePlayerCharacterSheetsCompendium(){
     this.setState({spellCompendiumVisible: false});
+    this.setState({itemCompendiumVisible: false});
     this.setState({creatureCompendiumVisible: false});
     this.setState({playerCharacterSheetsCompendiumVisible: !(this.state.playerCharacterSheetsCompendium)});
   }
@@ -54,15 +68,24 @@ class App extends React.Component {
         total_items = [...new Set([...this.state.storedSpells,...objects])]
         this.setState({storedSpells: total_items});
         break;
+      case 'items':
+        var total_items = this.state.storedItems.concat(objects);
+        total_items = [...new Set([...this.state.storedItems,...objects])]
+        this.setState({storedItems: total_items});
+        break;
     }
   }
 
   creatureCompendiumView(){
-    return (this.state.creatureCompendiumVisible ? <ObjectCompendium loaded_items={this.state.monster_items} object_type={'stat_blocks'} objForm={'StatBlockForm'} obj_component={'StatBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells}/> : null);
+    return (this.state.creatureCompendiumVisible ? <ObjectCompendium loaded_items={this.state.monster_items} object_type={'stat_blocks'} objForm={'StatBlockForm'} obj_component={'StatBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells} drawerInfoItems={this.state.storedItems}/> : null);
   }
 
   spellCompendiumView(){
-    return (this.state.spellCompendiumVisible ? <ObjectCompendium loaded_items={this.state.spell_items} object_type={'spells'} objForm={'SpellForm'} obj_component={'SpellBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells}/> : null);
+    return (this.state.spellCompendiumVisible ? <ObjectCompendium loaded_items={this.state.spell_items} object_type={'spells'} objForm={'SpellForm'} obj_component={'SpellBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells} drawerInfoItems={this.state.storedItems}/> : null);
+  }
+
+  itemCompendiumView(){
+    return (this.state.itemCompendiumVisible ? <ObjectCompendium loaded_items={this.state.items_items} object_type={'items'} objForm={'SpellForm'} obj_component={'ItemBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells} drawerInfoItems={this.state.storedItems}/> : null);
   }
 
   characterSheetsCompendiumView(){
@@ -80,6 +103,7 @@ class App extends React.Component {
             <ReactBootStrap.Nav.Link>Home</ReactBootStrap.Nav.Link>
             <ReactBootStrap.Nav.Link onClick={this._toggleCreatureCompendium}> Creature Compendium </ReactBootStrap.Nav.Link>
             <ReactBootStrap.Nav.Link onClick={this.toggleSpellCompendium}> Spell Compendium </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link onClick={this.toggleItemCompendium}> Item Compendium </ReactBootStrap.Nav.Link>
             <ReactBootStrap.Nav.Link onClick={this.togglePlayerCharacterSheetsCompendium}> Character Sheet Compendium </ReactBootStrap.Nav.Link>
           </ReactBootStrap.Nav>
         </ReactBootStrap.Navbar.Collapse>
@@ -87,6 +111,7 @@ class App extends React.Component {
         <div>
           {this.creatureCompendiumView()}
           {this.spellCompendiumView()}
+          {this.itemCompendiumView()}
           {this.characterSheetsCompendiumView()}
         </div>
       </div>

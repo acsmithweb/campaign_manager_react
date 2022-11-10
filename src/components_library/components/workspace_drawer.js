@@ -45,6 +45,25 @@ class WorkspaceDrawer extends React.Component {
         </ReactBootStrap.Accordion.Collapse>
       </ReactBootStrap.Card>
     </ReactBootStrap.Accordion>
+    <ReactBootStrap.Accordion class='col-xl-2 col-sm-4'>
+      <ReactBootStrap.Card>
+        <ReactBootStrap.Accordion.Toggle variant={ReactBootStrap.Card.Header} eventKey="0">
+          Items
+        </ReactBootStrap.Accordion.Toggle>
+        <ReactBootStrap.Accordion.Collapse eventKey="0">
+          <ReactBootStrap.Card.Body  class='compact'>
+            <ObjectLibrary
+              filteredObjects={null}
+              bookmarks={this.props.bookmarkedItems}
+              compact = {true}
+              obj_component={'ItemBlockComponent'}
+              object_type={'items'}
+              key = {this.props.key}
+            />
+          </ReactBootStrap.Card.Body>
+        </ReactBootStrap.Accordion.Collapse>
+      </ReactBootStrap.Card>
+    </ReactBootStrap.Accordion>
     </div>
     )
   }
