@@ -12,6 +12,7 @@ class App extends React.Component {
     this._toggleCreatureCompendium = this._toggleCreatureCompendium.bind(this);
     this.toggleItemCompendium = this.toggleItemCompendium.bind(this);
     this.toggleSpellCompendium = this.toggleSpellCompendium.bind(this);
+    this.toggleWorkBookCompendium = this.toggleWorkBookCompendium.bind(this);
     this.togglePlayerCharacterSheetsCompendium = this.togglePlayerCharacterSheetsCompendium.bind(this);
     this.addObjectToStorage = this.addObjectToStorage.bind(this);
   }
@@ -26,12 +27,16 @@ class App extends React.Component {
     get('items').then((result => {
      this.setState({items_items: result});
     }));
+    get('workbooks').then((result => {
+     this.setState({workbook_items: result});
+    }));
   }
 
   _toggleCreatureCompendium(){
     this.setState({spellCompendiumVisible: false});
     this.setState({itemCompendiumVisible: false});
     this.setState({playerCharacterSheetsCompendiumVisible: false});
+    this.setState({workBookCompendiumVisible: false});
     this.setState({creatureCompendiumVisible: !(this.state.creatureCompendiumVisible)});
   }
 
@@ -39,6 +44,7 @@ class App extends React.Component {
     this.setState({creatureCompendiumVisible: false});
     this.setState({spellCompendiumVisible: false});
     this.setState({playerCharacterSheetsCompendiumVisible: false});
+    this.setState({workBookCompendiumVisible: false});
     this.setState({itemCompendiumVisible: !(this.state.itemCompendiumVisible)});
   }
 
@@ -46,7 +52,16 @@ class App extends React.Component {
     this.setState({creatureCompendiumVisible: false});
     this.setState({itemCompendiumVisible: false});
     this.setState({playerCharacterSheetsCompendiumVisible: false});
+    this.setState({workBookCompendiumVisible: false});
     this.setState({spellCompendiumVisible: !(this.state.spellCompendiumVisible)});
+  }
+
+  toggleWorkBookCompendium(){
+    this.setState({creatureCompendiumVisible: false});
+    this.setState({itemCompendiumVisible: false});
+    this.setState({playerCharacterSheetsCompendiumVisible: false});
+    this.setState({spellCompendiumVisible: false});
+    this.setState({workBookCompendiumVisible: !(this.state.workBookCompendiumVisible)});
   }
 
   togglePlayerCharacterSheetsCompendium(){
@@ -85,7 +100,11 @@ class App extends React.Component {
   }
 
   itemCompendiumView(){
-    return (this.state.itemCompendiumVisible ? <ObjectCompendium loaded_items={this.state.items_items} object_type={'items'} objForm={'SpellForm'} obj_component={'ItemBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells} drawerInfoItems={this.state.storedItems}/> : null);
+    return (this.state.itemCompendiumVisible ? <ObjectCompendium loaded_items={this.state.items_items} object_type={'items'} objForm={'ItemForm'} obj_component={'ItemBlockComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells} drawerInfoItems={this.state.storedItems}/> : null);
+  }
+
+  workBookCompendiumView(){
+    return (this.state.workBookCompendiumVisible ? <ObjectCompendium loaded_items={this.state.workbook_items} object_type={'work_books'} objForm={'ItemForm'} obj_component={'WorkBookComponent'} storeObjects={this.addObjectToStorage} drawerInfoCreatures={this.state.storedStatBlocks} drawerInfoSpells={this.state.storedSpells} drawerInfoItems={this.state.storedItems}/> : null);
   }
 
   characterSheetsCompendiumView(){
@@ -104,6 +123,7 @@ class App extends React.Component {
             <ReactBootStrap.Nav.Link onClick={this._toggleCreatureCompendium}> Creature Compendium </ReactBootStrap.Nav.Link>
             <ReactBootStrap.Nav.Link onClick={this.toggleSpellCompendium}> Spell Compendium </ReactBootStrap.Nav.Link>
             <ReactBootStrap.Nav.Link onClick={this.toggleItemCompendium}> Item Compendium </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link onClick={this.toggleWorkBookCompendium}> Work Book Compendium </ReactBootStrap.Nav.Link>
             <ReactBootStrap.Nav.Link onClick={this.togglePlayerCharacterSheetsCompendium}> Character Sheet Compendium </ReactBootStrap.Nav.Link>
           </ReactBootStrap.Nav>
         </ReactBootStrap.Navbar.Collapse>
@@ -112,6 +132,7 @@ class App extends React.Component {
           {this.creatureCompendiumView()}
           {this.spellCompendiumView()}
           {this.itemCompendiumView()}
+          {this.workBookCompendiumView()}
           {this.characterSheetsCompendiumView()}
         </div>
       </div>
