@@ -145,6 +145,7 @@ class ObjectCompendium extends React.Component {
         <WorkspaceDrawer
           bookmarkedSpells = {this.props.drawerInfoSpells}
           bookmarkedCreatures = {this.props.drawerInfoCreatures}
+          bookmarkedItems = {this.props.drawerInfoItems}
           key = {this.state.key}
         />
       </div>

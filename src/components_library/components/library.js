@@ -46,10 +46,9 @@ class ObjectLibrary extends React.Component {
     var items = this.state.display_items;
     if (items != null && (items.length > 0 && items.length <= this.state.items.length)){
       return (
-        <InfiniteScroll dataLength={this.state.items.length}
+        <InfiniteScroll datalength={this.state.items.length}
           loadMore={this.fetchMoreData}
-          hasMore={true}
-        >
+          hasMore={true}>
           {items.map(item => (
               <Component key={item.id} item={item} removeIdFromSelectList={this.props.removeIdFromSelectList} addIdToSelectList={this.props.addIdToSelectList} compact={this.props.compact} />
           ))}
