@@ -27,7 +27,7 @@ render() {
         <div class="orange-border">
         </div>
           <div class="section-left">
-          <ReactBootStrap.Form.Check onClick={this.selectStatBlock} value={item.id}/>
+          {this.selectSpellBlock === undefined ? <ReactBootStrap.Form.Check onClick={this.selectStatBlock} value={item.id}/> : null}
             <div class="creature-heading">
               <h1>{item.name} </h1>
               <h2>{item.size} {item.creature_type} {item.alignment}</h2>

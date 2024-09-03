@@ -1,5 +1,5 @@
 .grid-container {
   display: grid;
-  grid-template-columns: repeat( auto-fit, minmax(50%, 1fr));
+  grid-template-columns: repeat( auto-fit, minmax(25%, 1fr));
   grid-template-rows: repeat( auto-fill, minmax(25%, 50%));
 }

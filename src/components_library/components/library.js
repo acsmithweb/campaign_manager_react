@@ -50,7 +50,7 @@ class ObjectLibrary extends React.Component {
           loadMore={this.fetchMoreData}
           hasMore={true}>
           {items.map(item => (
-              <Component key={item.id} item={item} removeIdFromSelectList={this.props.removeIdFromSelectList} addIdToSelectList={this.props.addIdToSelectList} compact={this.props.compact} />
+              <Component className={'col-xl-5 col-md-6 col-sm-8'} key={item.id} item={item} removeIdFromSelectList={this.props.removeIdFromSelectList} addIdToSelectList={this.props.addIdToSelectList} compact={this.props.compact} />
           ))}
         </InfiniteScroll>
       );

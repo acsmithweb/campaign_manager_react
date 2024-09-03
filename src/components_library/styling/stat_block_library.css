@@ -9,20 +9,23 @@ body *{
   font-family: 'Noto Sans', 'Myriad Pro', Calibri, Helvetica,
     Arial, sans-serif;
 }
+.modal-body .stat-block {
+  min-width:95%;
+}
 .stat-block {
   text-align: left;
   margin: 20px;
   display: inline-block;
   vertical-align: top;
   width: 17%;
-  min-width:220px;
+  min-width:500px;
   background: #FDF1DC;
   padding: 5px 10px 20px;
   box-shadow: 0 0 1.5em #867453;
   white-space: pre-wrap;
 }
 .stat-block.wide{
-  min-width: 85%;
+  min-width: 45%;
   text-align: center;
 }
 .stat-block.wide .section-left,

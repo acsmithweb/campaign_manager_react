@@ -1,4 +1,4 @@
-var url = 'http://192.168.1.9:3000/'
+var url = "http://192.168.1.10:3000/"
 
 export function delete_objects(ids, object_type) {
   fetch(url + object_type.toString() + '_destroy/',
@@ -13,6 +13,7 @@ export function delete_objects(ids, object_type) {
 }
 
 export function add_object(params, object_type) {
+  console.log(params);
   fetch(url + object_type.toString() + '/',
   {
     method: 'POST',
@@ -53,6 +54,19 @@ export function edit_objects(object_type, params) {
     body:JSON.stringify(params[object_type][id])
   }).then(res => res.json())
   )
+}
+
+export function engage_chat(params) {
+  return fetch(url + 'chat',
+  {
+    method: 'POST',
+    headers:
+    {
+      'Content-type': 'application/json; charset=UTF-8',
+      'Accept': 'application/json'
+    },
+    body:JSON.stringify(params)
+  }).then(res => res.json())
 }
 
 function generate_search_url_params(filter, values) {

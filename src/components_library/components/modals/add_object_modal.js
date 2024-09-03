@@ -43,7 +43,6 @@ class AddObjectModal extends React.Component {
         </ReactBootStrap.Modal.Footer>
       </ReactBootStrap.Modal>
     );
-
   }
 }
 

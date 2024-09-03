@@ -33,10 +33,10 @@ render() {
   var item = this.props.item;
   if(this.props.compact == false || this.props.compact == null)
     return(
-      <div class="stat-block col-xl-5 col-sm-8">
+      <div class="stat-block">
         <div class="orange-border">
         </div>
-        <ReactBootStrap.Form.Check onClick={this.selectItemBlock} value={item.id}/>
+        {this.selectSpellBlock === undefined ? <ReactBootStrap.Form.Check onClick={this.selectItemBlock} value={item.id}/> : null}
         <div class="creature-heading">
           <h1> {item.name} </h1>
           <h2> {item.item_type} {item.details} {item.property}</h2>
@@ -50,7 +50,7 @@ render() {
           </div>
           <div class="property-line">
             <h4>{item.ac ? 'AC:' + item.ac : ''}</h4>
-            <p>{item.stealth ? 'Stealth Disadvantage' : ''}</p>
+            <p>{item.stealth ? '' : ' Stealth Disadvantage'}</p>
           </div>
           <div class="property-line">
             <h4>Weight: </h4>

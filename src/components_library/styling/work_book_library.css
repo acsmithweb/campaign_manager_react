@@ -1,0 +1,28 @@
+.lib-window {
+  padding-top: 5px;
+  height: 450px;
+}
+
+.basic-workbook{
+  margin-left: 2%;
+}
+
+.inner-window{
+  height: 375px;
+  overflow: scroll;
+}
+
+.lib-window{
+  box-shadow: inset 0px 0px 5px #000000;
+}
+
+.row.record-line{
+  padding: 10px;
+  margin: auto;
+  background-color: #FDF1DC;
+  border-bottom: 1px solid #ccc;
+}
+
+.record-line:hover{
+  background-color: #f1c341;
+}

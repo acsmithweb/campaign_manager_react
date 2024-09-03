@@ -102,16 +102,6 @@ class ObjectCompendium extends React.Component {
   render(){
     return (
       <div>
-        <CompendiumActionBar
-          createAction = {this.toggleAddModal}
-          editAction = {this.toggleEditModal}
-          deleteAction = {this.toggleActionConfirmationModal}
-          storeAction = {this.storeSelectedObjects}
-          searchAction = {this.searchObjectText}
-          search_value = {this.state.search_value}
-          updateSearchValue = {this.updateSearchValue}
-          object = {this.state.object_type}
-        />
         <AddObjectModal
           toggleModal = {this.toggleAddModal}
           show = {this.state.show_add_object}
@@ -132,6 +122,17 @@ class ObjectCompendium extends React.Component {
           execute_action = {this.deleteObjects}
         />
         <div className='compendium-body'>
+
+          <CompendiumActionBar
+            createAction = {this.toggleAddModal}
+            editAction = {this.toggleEditModal}
+            deleteAction = {this.toggleActionConfirmationModal}
+            storeAction = {this.storeSelectedObjects}
+            searchAction = {this.searchObjectText}
+            search_value = {this.state.search_value}
+            updateSearchValue = {this.updateSearchValue}
+            object = {this.state.object_type}
+          />
           <ObjectLibrary
             filteredObjects={this.state.search_results}
             addIdToSelectList={this.addIdToSelectList}
@@ -146,8 +147,8 @@ class ObjectCompendium extends React.Component {
           bookmarkedSpells = {this.props.drawerInfoSpells}
           bookmarkedCreatures = {this.props.drawerInfoCreatures}
           bookmarkedItems = {this.props.drawerInfoItems}
-          key = {this.state.key}
-        />
+          key = {this.state.key}>
+        </WorkspaceDrawer>
       </div>
     )
   }

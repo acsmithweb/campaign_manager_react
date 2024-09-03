@@ -1,19 +1,21 @@
 import React from 'react';
 import '../styling/App.css';
 import ObjectCompendium from './compendium.js';
-import CharacterSheetComponent from './character_sheet_component.js'
-import * as ReactBootStrap from "react-bootstrap"
+import CharacterSheetComponent from './character_sheet_component.js';
+import TavernEmulatorComponent from './tavern_emulator_component.js';
+import * as ReactBootStrap from "react-bootstrap";
 import {get, get_with_filter} from '../../js/dungeon_master_api_facade.js';
 
 class App extends React.Component {
   constructor(props) {
     super();
-    this.state = {playerCharacterSheetsCompendiumVisible: false, creatureCompendiumVisible: false, spellCompendiumVisible: false, storedStatBlocks: [], storedSpells: [], storedItems: [], storedObjects: {stat_blocks: [], spells: []}}
+    this.state = {tavernEmulatorVisible: false, playerCharacterSheetsCompendiumVisible: false, creatureCompendiumVisible: false, spellCompendiumVisible: false, storedStatBlocks: [], storedSpells: [], storedItems: [], storedObjects: {stat_blocks: [], spells: []}}
     this._toggleCreatureCompendium = this._toggleCreatureCompendium.bind(this);
     this.toggleItemCompendium = this.toggleItemCompendium.bind(this);
     this.toggleSpellCompendium = this.toggleSpellCompendium.bind(this);
     this.toggleWorkBookCompendium = this.toggleWorkBookCompendium.bind(this);
     this.togglePlayerCharacterSheetsCompendium = this.togglePlayerCharacterSheetsCompendium.bind(this);
+    this.toggleTavernEmulator = this.toggleTavernEmulator.bind(this);
     this.addObjectToStorage = this.addObjectToStorage.bind(this);
   }
 
@@ -32,11 +34,21 @@ class App extends React.Component {
     }));
   }
 
+  toggleTavernEmulator(){
+    this.setState({creatureCompendiumVisible: false});
+    this.setState({spellCompendiumVisible: false});
+    this.setState({playerCharacterSheetsCompendiumVisible: false});
+    this.setState({workBookCompendiumVisible: false});
+    this.setState({itemCompendiumVisible: false});
+    this.setState({tavernEmulatorVisible: !(this.state.tavernEmulatorVisible)});
+  }
+
   _toggleCreatureCompendium(){
     this.setState({spellCompendiumVisible: false});
     this.setState({itemCompendiumVisible: false});
     this.setState({playerCharacterSheetsCompendiumVisible: false});
     this.setState({workBookCompendiumVisible: false});
+    this.setState({tavernEmulatorVisible: false});
     this.setState({creatureCompendiumVisible: !(this.state.creatureCompendiumVisible)});
   }
 
@@ -45,6 +57,7 @@ class App extends React.Component {
     this.setState({spellCompendiumVisible: false});
     this.setState({playerCharacterSheetsCompendiumVisible: false});
     this.setState({workBookCompendiumVisible: false});
+    this.setState({tavernEmulatorVisible: false});
     this.setState({itemCompendiumVisible: !(this.state.itemCompendiumVisible)});
   }
 
@@ -53,6 +66,7 @@ class App extends React.Component {
     this.setState({itemCompendiumVisible: false});
     this.setState({playerCharacterSheetsCompendiumVisible: false});
     this.setState({workBookCompendiumVisible: false});
+    this.setState({tavernEmulatorVisible: false});
     this.setState({spellCompendiumVisible: !(this.state.spellCompendiumVisible)});
   }
 
@@ -61,6 +75,7 @@ class App extends React.Component {
     this.setState({itemCompendiumVisible: false});
     this.setState({playerCharacterSheetsCompendiumVisible: false});
     this.setState({spellCompendiumVisible: false});
+    this.setState({tavernEmulatorVisible: false});
     this.setState({workBookCompendiumVisible: !(this.state.workBookCompendiumVisible)});
   }
 
@@ -68,6 +83,7 @@ class App extends React.Component {
     this.setState({spellCompendiumVisible: false});
     this.setState({itemCompendiumVisible: false});
     this.setState({creatureCompendiumVisible: false});
+    this.setState({tavernEmulatorVisible: false});
     this.setState({playerCharacterSheetsCompendiumVisible: !(this.state.playerCharacterSheetsCompendium)});
   }
 
@@ -111,20 +127,25 @@ class App extends React.Component {
     return (this.state.playerCharacterSheetsCompendiumVisible ? <CharacterSheetComponent/> : null);
   }
 
+  tavernEmulatorView(){
+    return (this.state.tavernEmulatorVisible ? <TavernEmulatorComponent/> : null);
+  }
+
   render() {
     return (
       <div className="App" id='main-app'>
-      <ReactBootStrap.Navbar bg="light" expand="lg" fixed="top">
+      <ReactBootStrap.Navbar bg="light" expand="xl" fixed="top">
         <ReactBootStrap.Navbar.Brand>Dungeon Dashboard</ReactBootStrap.Navbar.Brand>
         <ReactBootStrap.Navbar.Toggle aria-controls="basic-navbar-nav" />
         <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
-          <ReactBootStrap.Nav className="mr-auto">
+          <ReactBootStrap.Nav className="mr-auto flex-column flex-xl-row">
             <ReactBootStrap.Nav.Link>Home</ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link onClick={this._toggleCreatureCompendium}> Creature Compendium </ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link onClick={this.toggleSpellCompendium}> Spell Compendium </ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link onClick={this.toggleItemCompendium}> Item Compendium </ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link onClick={this.toggleWorkBookCompendium}> Work Book Compendium </ReactBootStrap.Nav.Link>
-            <ReactBootStrap.Nav.Link onClick={this.togglePlayerCharacterSheetsCompendium}> Character Sheet Compendium </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link onClick={this._toggleCreatureCompendium}> Creatures </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link onClick={this.toggleSpellCompendium}> Spells </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link onClick={this.toggleItemCompendium}> Items </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link onClick={this.toggleWorkBookCompendium}> Work Books </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link onClick={this.togglePlayerCharacterSheetsCompendium}> Character Sheets </ReactBootStrap.Nav.Link>
+            <ReactBootStrap.Nav.Link onClick={this.toggleTavernEmulator}> Emulator </ReactBootStrap.Nav.Link>
           </ReactBootStrap.Nav>
         </ReactBootStrap.Navbar.Collapse>
       </ReactBootStrap.Navbar>
@@ -134,6 +155,7 @@ class App extends React.Component {
           {this.itemCompendiumView()}
           {this.workBookCompendiumView()}
           {this.characterSheetsCompendiumView()}
+          {this.tavernEmulatorView()}
         </div>
       </div>
     );
