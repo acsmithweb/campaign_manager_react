@@ -1,4 +1,4 @@
-var url = "http://192.168.1.10:3000/"
+var url = "ip_address_placeholder"
 
 export function delete_objects(ids, object_type) {
   fetch(url + object_type.toString() + '_destroy/',
