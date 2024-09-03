@@ -1,0 +1,13 @@
+.multi-chat-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  background-color: #f8f9fa; /* Bootstrap's light gray background color */
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .multi-chat-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}

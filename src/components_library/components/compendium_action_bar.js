@@ -1,6 +1,6 @@
 import React from 'react';
 import * as ReactBootStrap from 'react-bootstrap';
-import { faSearch, faTrashAlt, faPlusSquare, faEdit, faSdCard} from "@fortawesome/free-solid-svg-icons";
+import { faChalkboardTeacher, faSearch, faTrashAlt, faPlusSquare, faEdit, faSdCard} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styling/compendium.css";
 

@@ -2,7 +2,7 @@ import React from 'react';
 import * as ReactBootStrap from "react-bootstrap";
 import '../styling/stat_block_library.css';
 
-class SpellBlockComponent extends React.Component {
+class ItemBlockComponent extends React.Component {
   constructor(props) {
     super(props);
 
@@ -11,10 +11,10 @@ class SpellBlockComponent extends React.Component {
       item: this.props.item
     };
 
-    this.selectSpellBlock = this.selectSpellBlock.bind(this);
+    this.selectItemBlock = this.selectItemBlock.bind(this);
   }
 
-  selectSpellBlock(e) {
+  selectItemBlock(e) {
     const {checked, value} = e.target;
     checked ? this.props.addIdToSelectList(value) : this.props.removeIdFromSelectList(value);
   };
@@ -36,35 +36,41 @@ render() {
       <div class="stat-block">
         <div class="orange-border">
         </div>
-          {this.selectSpellBlock === undefined ? null : <ReactBootStrap.Form.Check onClick={this.selectSpellBlock} value={item.id}/>}
+        {this.selectSpellBlock === undefined ? <ReactBootStrap.Form.Check onClick={this.selectItemBlock} value={item.id}/> : null}
         <div class="creature-heading">
           <h1> {item.name} </h1>
-          <h2> {item.school} Level-{item.level} {item.ritual ? '(ritual)' : ''} / {this.formatArrays(item.classes)}</h2>
+          <h2> {item.item_type} {item.details} {item.property}</h2>
         </div>
         <svg height="5" width="150%" class="tapered-rule">
           <polyline points="0,0 400,2.5 0,5"></polyline>
         </svg>
         <div class="top-stats">
           <div class="property-line first">
-            <h4>Casting Time: </h4>
-            <p>{item.casting_time}</p>
+            <h4>{item.magic ? "magical" : ''}</h4>
           </div>
           <div class="property-line">
-            <h4>Range: </h4>
-            <p>{item.range}</p>
+            <h4>{item.ac ? 'AC:' + item.ac : ''}</h4>
+            <p>{item.stealth ? '' : ' Stealth Disadvantage'}</p>
           </div>
           <div class="property-line">
-            <h4>Components: </h4>
-            <p>{this.formatArrays(item.components)} ({item.material})</p>
+            <h4>Weight: </h4>
+            <p>{item.weight}</p>
           </div>
           <div class="property-line">
-            <h4>Duration: </h4>
-            <p>{item.concentration ? 'Concentration, ' : ''} {item.duration}</p>
+            <h4>Value: </h4>
+            <p>{item.value}</p>
+          </div>
+          <div class="property-line">
+            <h4>{item.damage ? "Damage:" : '' }</h4>
+            <p>{item.damage ? item.damage : '' }</p>
+            <p>{item.dmg_type ? item.dmg_type : '' }</p>
           </div>
         </div>
         <div class="property-block">
-          <p>{this.formatArrays(item.desc)} {"\n"}</p>
-          {(item.higher_level ? <div><h4>At Higher Levels: </h4> <p>{this.formatArrays(item.higher_level)}</p></div> : '')}
+          <p>{item.desc}</p>
+        </div>
+        <div class="property-block">
+          <p>{this.formatArrays(item.rolls)} {"\n"}</p>
         </div>
       </div>
     );
@@ -74,16 +80,14 @@ render() {
         <div class="creature-heading">
           <ReactBootStrap.Form.Check value={item.id}/>
           <h1> {item.name} </h1>
-          <h2>Casting Time: {item.casting_time}</h2>
-          <h2>Level-{item.level} {item.ritual ? '(ritual)' : ''} </h2>
-          <h2>Duration: {item.duration}, {item.concentration ? 'Concentration, ' : ''} </h2>
-          <h2>Components: {this.formatArrays(item.components)} ({item.material})</h2>
-          <h2>Range: {item.range}</h2>
-          <h2>Damage Type: {item.damage_type}</h2>
+          <h2>Item Type: {item.item_type}</h2>
+          <h2>Item Property: {item.property}</h2>
+          <h2>Value: {item.value}</h2>
+          <h2>Weight: {item.weight}</h2>
         </div>
       </div>);
     }
   }
 }
 
-export default SpellBlockComponent
+export default ItemBlockComponent
