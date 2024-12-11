@@ -1,4 +1,4 @@
-var url = "http://192.168.1.10:3000/"
+var url = "localhost:3000/"
 
 export function delete_objects(ids, object_type) {
   fetch(url + object_type.toString() + '_destroy/',
