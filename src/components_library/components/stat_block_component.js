@@ -23,7 +23,7 @@ render() {
   var item = this.state.item;
   if(this.props.compact == false || this.props.compact == null){
     return(
-      <div class="stat-block wide">
+      <div class="stat-block">
         <div class="orange-border">
         </div>
           <div class="section-left">
